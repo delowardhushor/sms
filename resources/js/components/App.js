@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import {HashRouter,Route} from 'react-router-dom';
 
+import {setItem, getItem} from './utilities/utilities';
+
 import './css/style.css';
 
 import Dashboard from './Dashboard';
@@ -29,13 +31,29 @@ toastr.options = {
   }
 
 export default class App extends Component {
+
+    constructor(props){
+		super(props);
+		this.state={
+            userdata:'',
+		};
+    }
+    
+    componentWillMount(){
+        var userdata = getItem('userdata');
+        if(userdata != null){
+            this.setState({userdata:userdata});
+        }
+    }
+
     render() {
         return (
             <HashRouter>
                 <div>
-                    <Route exact path="/" component={Signin } /> 
+                    <Route exact path="/" component={() => <Dashboard userdata={this.state.userdata} /> } />
+                    <Route exact path="/dashboard" component={Dashboard } />
+                    <Route exact path="/signin" component={Signin } /> 
                     <Route exact path="/signup" component={Signup } /> 
-                    <Route exact path="/dashboard" component={Dashboard } /> 
                 </div>
             </HashRouter>
         );

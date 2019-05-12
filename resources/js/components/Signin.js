@@ -31,6 +31,7 @@ export default class Signin extends Component {
         })
         .then((res)=> {
             this.setState({loginLoading:false});
+            console.log(res)
             if(res.data.success){
                 setItem('userdata', res.data.userdata);
                 toastr.success('Welcome To Falgun SMS Service', 'Hi '+res.data.userdata.name+'!');

@@ -1,21 +1,17 @@
 body {
     background-color: #fff;
+    font-family: 'Poppins';
 }
 
 :root {
     --input-padding-x: 1.5rem;
     --input-padding-y: .75rem;
   }
-  
-  body {
-    /* background: #007bff; */
-    /* background: linear-gradient(to right, #0062E6, #33AEFF); */
-  }
-  
+
   .card-signin {
     border: 0;
     border-radius: 1rem;
-    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.5);
   }
   
   .card-signin .card-title {
@@ -115,4 +111,87 @@ body {
   
 .header{
   background-color: transparent;
+}
+
+/* my css start */
+
+.fal-header{
+  display:flex;
+  height: 80px;
+  padding:0px 15px;
+  justify-content:space-between;
+  align-items:center;
+  box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+}
+
+.header-right{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.shadow{
+  box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+}
+
+.user-btn{
+  height:40px;
+  width:40px;
+  cursor: pointer;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.account-btn-wrapper{
+  position: absolute;
+  right: 0px;
+  top: 40px;
+  width: 150px;
+  padding: 15px;
+  font-size: 14px;
+  flex-direction: column;
+  border-radius: 10px;
+  text-align: center;
+  display: flex;
+  background-color: #fff;
+  box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.3);
+}
+
+.account-btn-wrapper a{
+  padding: 10px 0px;
+  border-bottom: .5px solid #ddd;
+  text-decoration: none;
+  color: #000;
+}
+
+.account-btn-wrapper a:last-child{
+  border-bottom: 0px;
+}
+
+.main-wrapper{
+  display: flex;
+  justify-content: flex-start;
+}
+
+.main-page{
+  padding: 15px;
+}
+
+.Sidebar{
+  width:150px;
+}
+
+.list-group-item:first-child {
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+}
+
+@media (min-width: 992px){
+  .navbar-expand-lg {
+      flex-flow: wrap;
+      justify-content: space-between;
+  }
 }
