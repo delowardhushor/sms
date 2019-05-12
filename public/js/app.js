@@ -66970,7 +66970,9 @@ function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Header__WEBPACK_IMPORTED_MODULE_2__["default"], null));
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Header__WEBPACK_IMPORTED_MODULE_2__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: Object(_utilities_utilities__WEBPACK_IMPORTED_MODULE_3__["removeItem"])('userdata')
+      }));
     }
   }]);
 
@@ -67171,9 +67173,9 @@ function (_Component) {
   _createClass(Signin, [{
     key: "componentWillMount",
     value: function componentWillMount() {
-      var user = Object(_utilities_utilities__WEBPACK_IMPORTED_MODULE_1__["getItem"])('user');
+      var userdata = Object(_utilities_utilities__WEBPACK_IMPORTED_MODULE_1__["getItem"])('userdata');
 
-      if (user != null) {
+      if (userdata != null) {
         this.props.history.push('/dashboard');
       }
     }
@@ -67368,9 +67370,9 @@ function (_Component) {
   _createClass(Signin, [{
     key: "componentWillMount",
     value: function componentWillMount() {
-      var user = Object(_utilities_utilities__WEBPACK_IMPORTED_MODULE_1__["getItem"])('user');
+      var userdata = Object(_utilities_utilities__WEBPACK_IMPORTED_MODULE_1__["getItem"])('userdata');
 
-      if (user != null) {
+      if (userdata != null) {
         this.props.history.push('/dashboard');
       }
     }

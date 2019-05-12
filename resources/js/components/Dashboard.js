@@ -30,7 +30,7 @@ export default class Dashboard extends Component {
         return (
             <div>
                 <Header />
-                
+                <button onClick={removeItem('userdata')}></button>
             </div>
         );
     }
