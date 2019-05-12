@@ -1,5 +1,5 @@
 <?php
-
+use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,5 +15,12 @@ Route::get('/', function () {
     return view('app');
 });
 
-Route::get('/users', 'UsersController@index');
-Route::post('/users', 'UsersController@index');
+Route::post('/signup', 'UsersController@store');
+//Route::post('/signin', 'UsersController@login');
+Route::post('/signin', 'UsersController@login');
+
+
+Route::post('/verify', 'UsersController@verify');
+
+Route::post('/setpin', 'UsersController@setpin');
+Route::post('/recoverpass', 'UsersController@recoverpass');

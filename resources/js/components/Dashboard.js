@@ -7,8 +7,8 @@ import {getItem, removeItem} from './utilities/utilities';
 export default class Dashboard extends Component {
 
     componentWillMount(){
-        var user = getItem('user');
-        if(user == null){
+        var userdata = getItem('userdata');
+        if(userdata == null){
             this.props.history.push('/');
         }
     }
@@ -30,7 +30,7 @@ export default class Dashboard extends Component {
         return (
             <div>
                 <Header />
-                    <button onClick={this.getUser.bind(this)} type="button">Done</button>
+                
             </div>
         );
     }

@@ -4,12 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Users;
 use Illuminate\Http\Request;
-namespace App\Http\Controllers;
-use App\Users;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 //use App\Http\Requests;
 use App\Http\Resources\Users as UserResource;
+
 class UsersController extends Controller
 {
     /**
@@ -101,9 +99,8 @@ class UsersController extends Controller
         }
         elseif($Users !== '' && Hash::check($request->input('pin'), $Users->pin) === true){
             $Users->pin = '';
-            $user->verified = 1;
+            $Users->verified = 1;
             $Users->password = Hash::make($request->input('password'));
-            $Users->remember_token = Hash::make(random_bytes(10));
             if($Users->save()){
                 return [
                     'success' => true, 
@@ -112,7 +109,8 @@ class UsersController extends Controller
                             'id' => $Users->id, 
                             'name' => $Users->name, 
                             'mobile' => $Users->mobile,
-                            'token' => $Users->remember_token
+                            'type' => $Users->type,
+                            'balance' => $user->balance
                         ], 
                 ];
             }
@@ -152,7 +150,8 @@ class UsersController extends Controller
                             'id' => $user->id, 
                             'name' => $user->name, 
                             'mobile' => $user->mobile,
-                            'token' => $user->remember_token
+                            'type' => $user->type,
+                            'balance' => $user->balance
                         ], 
                 ];
             }
@@ -173,7 +172,6 @@ class UsersController extends Controller
             return ['success' => false, 'msg' => 'Invalid Information'];
         }
         elseif($user !== '' && Hash::check($request->input('password'), $user->password) === true){
-            $user->remember_token = Hash::make(random_bytes(10));
             if($user->save()){
                 return [
                     'success' => true, 
@@ -182,7 +180,8 @@ class UsersController extends Controller
                             'id' => $user->id, 
                             'name' => $user->name, 
                             'mobile' => $user->mobile , 
-                            'token' => $user->remember_token
+                            'type' => $user->type,
+                            'balance' => $user->balance
                         ], 
                 ];
             }
