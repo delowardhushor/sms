@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
+import {getItem, removeItem} from './utilities/utilities';
+
+import toastr from "toastr";
 
 export default class Header extends Component {
 
@@ -12,6 +15,14 @@ export default class Header extends Component {
 
     componentWillReceiveProps(){
 
+    }
+
+    logout(e){
+        e.preventDefault();
+        toastr.success('Thanks for using Falgun SMS service', 'Signed Out!');
+        this.props.updateUser(null);
+        removeItem('userdata');
+        this.props.history.push('/signin');
     }
 
     render() {
@@ -27,7 +38,7 @@ export default class Header extends Component {
                         <div className="account-btn-wrapper">
                             <Link to='/'>Profile</Link>
                             <Link to='/'>Profile</Link>
-                            <Link to='/'>Signout</Link>
+                            <a href='#' onClick={this.logout.bind(this)} >Signout</a>
                         </div>
                         }
                     </span>

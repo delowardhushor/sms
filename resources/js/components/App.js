@@ -36,7 +36,8 @@ export default class App extends Component {
 		super(props);
 		this.state={
             userdata:'',
-		};
+        };
+        this.updateUser = this.updateUser.bind(this);
     }
     
     componentWillMount(){
@@ -46,14 +47,39 @@ export default class App extends Component {
         }
     }
 
+    updateUser(data){
+        console.log(data);
+        this.setState({userdata:data});
+    }
+
     render() {
         return (
             <HashRouter>
                 <div>
-                    <Route exact path="/" component={() => <Dashboard userdata={this.state.userdata} /> } />
+                    {/* <Route exact path="/" component={() => <Dashboard userdata={this.state.userdata} /> } />
                     <Route exact path="/dashboard" component={Dashboard } />
                     <Route exact path="/signin" component={Signin } /> 
-                    <Route exact path="/signup" component={Signup } /> 
+                    <Route exact path="/signup" component={Signup } />  */}
+                    <Route
+                        exact 
+                        path="/" 
+                        render={(props) => <Dashboard {...props} userdata={this.state.userdata} updateUser={this.updateUser} />} 
+                    />
+                    <Route
+                        exact 
+                        path="/dashboard" 
+                        render={(props) => <Dashboard {...props} userdata={this.state.userdata} updateUser={this.updateUser} />} 
+                    />
+                    <Route
+                        exact 
+                        path="/signin" 
+                        render={(props) => <Signin {...props} userdata={this.state.userdata} updateUser={this.updateUser} />} 
+                    />
+                    <Route
+                        exact 
+                        path="/signup" 
+                        render={(props) => <Signup {...props} userdata={this.state.userdata} updateUser={this.updateUser} />} 
+                    />
                 </div>
             </HashRouter>
         );

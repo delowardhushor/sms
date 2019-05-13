@@ -8,9 +8,7 @@ import {getItem, removeItem} from './utilities/utilities';
 export default class Dashboard extends Component {
 
     componentWillMount(){
-        var userdata = getItem('userdata');
-       // console.log(userdata);
-        if(userdata == null){
+        if(this.props.userdata == null || this.props.userdata == ''){
             this.props.history.push('/signin');
         }
     }
@@ -33,15 +31,16 @@ export default class Dashboard extends Component {
 
 
     render() {
-        console.log("asas", this.props.userdata)
+        console.log(this.props)
         return (
             <div>
-                <Header userdata={this.props.userdata} />
+                <Header userdata={this.props.userdata} history={this.props.history} updateUser={this.props.updateUser} />
                 <div className='main-wrapper'>
                     <Sidebar />
                     <div className='main-page'>
                         this is page
                     </div>
+                    <button onClick={() => this.props.updateUser()}>sdfdsf</button>
                 </div>
             </div>
         );
