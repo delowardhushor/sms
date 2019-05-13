@@ -75,7 +75,13 @@ export default class Signin extends Component {
                         </div>
                         
                         <button onClick={this.login.bind(this)} className="btn btn-lg btn-primary btn-block text-uppercase" type="button">
-                           {this.state.loginLoading ? <img src='./images/spin.gif' style={{width:20}} /> : null} Sign in
+                            {this.state.loginLoading ? 
+                                <div class="spinner-border spinner-border-sm" role="status">
+                                    <span class="sr-only">Loading...</span>
+                                </div> 
+                                    : 
+                                'Sign in'
+                            } 
                         </button>
                         <hr className="my-4"/>
                         <button onClick={()=> this.props.history.push('/forgetpassword')} className="btn btn-lg btn-google btn-block text-uppercase" type="button"><i className="fab fa-google mr-2"></i> Forget Password</button>

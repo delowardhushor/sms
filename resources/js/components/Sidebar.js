@@ -10,10 +10,10 @@ export default class Sidebar extends Component {
         return (
             <div className="sidebar shadow">
                 <div class="list-group">
-                <Link to="#" class="list-group-item list-group-item-action active">
+                <Link to="/" class="list-group-item list-group-item-action active">
                     Dashboard
                 </Link>
-                <Link to="#" class="list-group-item list-group-item-action">Send SMS</Link>
+                <Link to="/sms" class="list-group-item list-group-item-action">Send SMS</Link>
                 <Link to="#" class="list-group-item list-group-item-action">Morbi leo risus</Link>
                 <Link to="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</Link>
                 <Link to="#" class="list-group-item list-group-item-action disabled">Vestibulum at eros</Link>

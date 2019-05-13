@@ -9,6 +9,7 @@ import './css/style.css';
 import Dashboard from './Dashboard';
 import Signin from './Signin';
 import Signup from './Signup';
+import Sms from './Sms';
 
 import toastr from 'toastr';
 
@@ -47,6 +48,13 @@ export default class App extends Component {
         }
     }
 
+    componentDidMount(){
+        var mainPage = document.getElementById('main-page')
+        if(mainPage != null){
+            mainPage.style.width = (window.innerWidth-150)+'px';
+        }
+    }
+
     updateUser(data){
         console.log(data);
         this.setState({userdata:data});
@@ -79,6 +87,11 @@ export default class App extends Component {
                         exact 
                         path="/signup" 
                         render={(props) => <Signup {...props} userdata={this.state.userdata} updateUser={this.updateUser} />} 
+                    />
+                    <Route
+                        exact 
+                        path="/sms" 
+                        render={(props) => <Sms {...props} userdata={this.state.userdata} updateUser={this.updateUser} />} 
                     />
                 </div>
             </HashRouter>

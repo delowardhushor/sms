@@ -147,6 +147,7 @@ body {
 
 .account-btn-wrapper{
   position: absolute;
+  z-index: 999;
   right: 0px;
   top: 40px;
   width: 150px;
@@ -176,11 +177,11 @@ body {
   justify-content: flex-start;
 }
 
-.main-page{
+#main-page{
   padding: 15px;
 }
 
-.Sidebar{
+.sidebar{
   width:150px;
 }
 
