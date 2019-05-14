@@ -6520,7 +6520,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "body {\r\n    background-color: #fff;\r\n    font-family: 'Poppins';\r\n}\r\n\r\n:root {\r\n    --input-padding-x: 1.5rem;\r\n    --input-padding-y: .75rem;\r\n  }\r\n\r\n  .card-signin {\r\n    border: 0;\r\n    border-radius: 1rem;\r\n    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.5);\r\n  }\r\n  \r\n  .card-signin .card-title {\r\n    margin-bottom: 2rem;\r\n    font-weight: 300;\r\n    font-size: 1.5rem;\r\n  }\r\n  \r\n  .card-signin .card-body {\r\n    padding: 2rem;\r\n  }\r\n  \r\n  .form-signin {\r\n    width: 100%;\r\n  }\r\n  \r\n  .form-signin .btn {\r\n    font-size: 80%;\r\n    border-radius: 5rem;\r\n    letter-spacing: .1rem;\r\n    font-weight: bold;\r\n    padding: 1rem;\r\n    transition: all 0.2s;\r\n  }\r\n  \r\n  .form-label-group {\r\n    position: relative;\r\n    margin-bottom: 1rem;\r\n  }\r\n  \r\n  .form-label-group input {\r\n    height: auto;\r\n    border-radius: 2rem;\r\n  }\r\n  \r\n  .form-label-group>input,\r\n  .form-label-group>label {\r\n    padding: var(--input-padding-y) var(--input-padding-x);\r\n  }\r\n  \r\n  .form-label-group>label {\r\n    position: absolute;\r\n    top: 0;\r\n    left: 0;\r\n    display: block;\r\n    width: 100%;\r\n    margin-bottom: 0;\r\n    /* Override default `<label>` margin */\r\n    line-height: 1.5;\r\n    color: #495057;\r\n    border: 1px solid transparent;\r\n    border-radius: .25rem;\r\n    transition: all .1s ease-in-out;\r\n  }\r\n  \r\n  .form-label-group input::-webkit-input-placeholder {\r\n    color: transparent;\r\n  }\r\n  \r\n  .form-label-group input:-ms-input-placeholder {\r\n    color: transparent;\r\n  }\r\n  \r\n  .form-label-group input::-ms-input-placeholder {\r\n    color: transparent;\r\n  }\r\n  \r\n  .form-label-group input::-moz-placeholder {\r\n    color: transparent;\r\n  }\r\n  \r\n  .form-label-group input::placeholder {\r\n    color: transparent;\r\n  }\r\n  \r\n  .form-label-group input:not(:placeholder-shown) {\r\n    padding-top: calc(var(--input-padding-y) + var(--input-padding-y) * (2 / 3));\r\n    padding-bottom: calc(var(--input-padding-y) / 3);\r\n  }\r\n  \r\n  .form-label-group input:not(:placeholder-shown)~label {\r\n    padding-top: calc(var(--input-padding-y) / 3);\r\n    padding-bottom: calc(var(--input-padding-y) / 3);\r\n    font-size: 12px;\r\n    color: #777;\r\n  }\r\n  \r\n  .btn-google {\r\n    color: white;\r\n    background-color: #ea4335;\r\n  }\r\n  \r\n  .btn-facebook {\r\n    color: white;\r\n    background-color: #3b5998;\r\n  }\r\n  \r\n.header{\r\n  background-color: transparent;\r\n}\r\n\r\n/* my css start */\r\n\r\n.fal-header{\r\n  display:flex;\r\n  height: 80px;\r\n  padding:0px 15px;\r\n  justify-content:space-between;\r\n  align-items:center;\r\n  box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);\r\n}\r\n\r\n.header-right{\r\n  display: flex;\r\n  flex-direction: row;\r\n  align-items: center;\r\n}\r\n\r\n.shadow{\r\n  box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);\r\n}\r\n\r\n.user-btn{\r\n  height:40px;\r\n  width:40px;\r\n  cursor: pointer;\r\n  font-size: 24px;\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: center;\r\n  position: relative;\r\n}\r\n\r\n.account-btn-wrapper{\r\n  position: absolute;\r\n  z-index: 999;\r\n  right: 0px;\r\n  top: 40px;\r\n  width: 150px;\r\n  padding: 15px;\r\n  font-size: 14px;\r\n  flex-direction: column;\r\n  border-radius: 10px;\r\n  text-align: center;\r\n  display: flex;\r\n  background-color: #fff;\r\n  box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.3);\r\n}\r\n\r\n.account-btn-wrapper a{\r\n  padding: 10px 0px;\r\n  border-bottom: .5px solid #ddd;\r\n  text-decoration: none;\r\n  color: #000;\r\n}\r\n\r\n.account-btn-wrapper a:last-child{\r\n  border-bottom: 0px;\r\n}\r\n\r\n.main-wrapper{\r\n  display: flex;\r\n  justify-content: flex-start;\r\n}\r\n\r\n#main-page{\r\n  padding: 15px;\r\n}\r\n\r\n.sidebar{\r\n  width:150px;\r\n}\r\n\r\n.list-group-item:first-child {\r\n  border-top-left-radius: 0px;\r\n  border-top-right-radius: 0px;\r\n}\r\n\r\n@media (min-width: 992px){\r\n  .navbar-expand-lg {\r\n      flex-flow: wrap;\r\n      justify-content: space-between;\r\n  }\r\n}", ""]);
+exports.push([module.i, "body {\r\n    background-color: #fff;\r\n    font-family: 'Poppins';\r\n}\r\n\r\n:root {\r\n    --input-padding-x: 1.5rem;\r\n    --input-padding-y: .75rem;\r\n  }\r\n\r\n  .card-signin {\r\n    border: 0;\r\n    border-radius: 1rem;\r\n    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.5);\r\n  }\r\n  \r\n  .card-signin .card-title {\r\n    margin-bottom: 2rem;\r\n    font-weight: 300;\r\n    font-size: 1.5rem;\r\n  }\r\n  \r\n  .card-signin .card-body {\r\n    padding: 2rem;\r\n  }\r\n  \r\n  .form-signin {\r\n    width: 100%;\r\n  }\r\n  \r\n  .form-signin .btn {\r\n    font-size: 80%;\r\n    border-radius: 5rem;\r\n    letter-spacing: .1rem;\r\n    font-weight: bold;\r\n    padding: 1rem;\r\n    transition: all 0.2s;\r\n  }\r\n  \r\n  .form-label-group {\r\n    position: relative;\r\n    margin-bottom: 1rem;\r\n  }\r\n  \r\n  .form-label-group input {\r\n    height: auto;\r\n    border-radius: 2rem;\r\n  }\r\n  \r\n  .form-label-group>input,\r\n  .form-label-group>label {\r\n    padding: var(--input-padding-y) var(--input-padding-x);\r\n  }\r\n  \r\n  .form-label-group>label {\r\n    position: absolute;\r\n    top: 0;\r\n    left: 0;\r\n    display: block;\r\n    width: 100%;\r\n    margin-bottom: 0;\r\n    /* Override default `<label>` margin */\r\n    line-height: 1.5;\r\n    color: #495057;\r\n    border: 1px solid transparent;\r\n    border-radius: .25rem;\r\n    transition: all .1s ease-in-out;\r\n  }\r\n  \r\n  .form-label-group input::-webkit-input-placeholder {\r\n    color: transparent;\r\n  }\r\n  \r\n  .form-label-group input:-ms-input-placeholder {\r\n    color: transparent;\r\n  }\r\n  \r\n  .form-label-group input::-ms-input-placeholder {\r\n    color: transparent;\r\n  }\r\n  \r\n  .form-label-group input::-moz-placeholder {\r\n    color: transparent;\r\n  }\r\n  \r\n  .form-label-group input::placeholder {\r\n    color: transparent;\r\n  }\r\n  \r\n  .form-label-group input:not(:placeholder-shown) {\r\n    padding-top: calc(var(--input-padding-y) + var(--input-padding-y) * (2 / 3));\r\n    padding-bottom: calc(var(--input-padding-y) / 3);\r\n  }\r\n  \r\n  .form-label-group input:not(:placeholder-shown)~label {\r\n    padding-top: calc(var(--input-padding-y) / 3);\r\n    padding-bottom: calc(var(--input-padding-y) / 3);\r\n    font-size: 12px;\r\n    color: #777;\r\n  }\r\n  \r\n  .btn-google {\r\n    color: white;\r\n    background-color: #ea4335;\r\n  }\r\n  \r\n  .btn-facebook {\r\n    color: white;\r\n    background-color: #3b5998;\r\n  }\r\n  \r\n.header{\r\n  background-color: transparent;\r\n}\r\n\r\n/* my css start */\r\n\r\n.f-c-sb{\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: space-between;\r\n}\r\n\r\n.f-c-sa{\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: space-around;\r\n}\r\n\r\n.fal-header{\r\n  display:flex;\r\n  height: 80px;\r\n  padding:0px 15px;\r\n  justify-content:space-between;\r\n  align-items:center;\r\n  box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);\r\n}\r\n\r\n.header-right{\r\n  display: flex;\r\n  flex-direction: row;\r\n  align-items: center;\r\n}\r\n\r\n.shadow{\r\n  box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);\r\n}\r\n\r\n.user-btn{\r\n  height:40px;\r\n  width:40px;\r\n  cursor: pointer;\r\n  font-size: 24px;\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: center;\r\n  position: relative;\r\n}\r\n\r\n.account-btn-wrapper{\r\n  position: absolute;\r\n  z-index: 999;\r\n  right: 0px;\r\n  top: 40px;\r\n  width: 150px;\r\n  padding: 15px;\r\n  font-size: 14px;\r\n  flex-direction: column;\r\n  border-radius: 10px;\r\n  text-align: center;\r\n  display: flex;\r\n  background-color: #fff;\r\n  box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.3);\r\n}\r\n\r\n.account-btn-wrapper a{\r\n  padding: 10px 0px;\r\n  border-bottom: .5px solid #ddd;\r\n  text-decoration: none;\r\n  color: #000;\r\n}\r\n\r\n.account-btn-wrapper a:last-child{\r\n  border-bottom: 0px;\r\n}\r\n\r\n.main-wrapper{\r\n  display: flex;\r\n  justify-content: flex-start;\r\n}\r\n\r\n.main-page{\r\n  padding: 15px;\r\n}\r\n\r\n.sidebar{\r\n  width:200px;\r\n}\r\n\r\n.list-group-item:first-child {\r\n  border-top-left-radius: 0px;\r\n  border-top-right-radius: 0px;\r\n}\r\n\r\n@media (min-width: 992px){\r\n  .navbar-expand-lg {\r\n      flex-flow: wrap;\r\n      justify-content: space-between;\r\n  }\r\n}", ""]);
 
 // exports
 
@@ -66897,7 +66897,7 @@ function (_Component) {
       var mainPage = document.getElementById('main-page');
 
       if (mainPage != null) {
-        mainPage.style.width = window.innerWidth - 150 + 'px';
+        mainPage.style.width = window.innerWidth - 200 + 'px';
       }
     }
   }, {
@@ -67056,9 +67056,14 @@ function (_Component) {
         history: this.props.history,
         updateUser: this.props.updateUser
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "main-wrapper"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Sidebar__WEBPACK_IMPORTED_MODULE_3__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "main-page"
+        className: "main-wrapper",
+        style: {
+          width: Object(_utilities_utilities__WEBPACK_IMPORTED_MODULE_4__["mainPageWidth"])()
+        }
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Sidebar__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        history: this.props.history
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "main-page"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "row"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -67231,26 +67236,18 @@ function (_Component) {
   _createClass(Sidebar, [{
     key: "render",
     value: function render() {
+      var pathname = this.props.history.location.pathname;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "sidebar shadow"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         "class": "list-group"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
-        to: "/",
-        "class": "list-group-item list-group-item-action active"
+        to: "/dashboard",
+        className: pathname == '/dashboard' ? 'list-group-item list-group-item-action active' : 'list-group-item list-group-item-action'
       }, "Dashboard"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
         to: "/sms",
-        "class": "list-group-item list-group-item-action"
-      }, "Send SMS"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
-        to: "#",
-        "class": "list-group-item list-group-item-action"
-      }, "Morbi leo risus"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
-        to: "#",
-        "class": "list-group-item list-group-item-action"
-      }, "Porta ac consectetur ac"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
-        to: "#",
-        "class": "list-group-item list-group-item-action disabled"
-      }, "Vestibulum at eros")));
+        className: pathname == '/sms' ? 'list-group-item list-group-item-action active' : 'list-group-item list-group-item-action'
+      }, "Send SMS")));
     }
   }]);
 
@@ -67344,10 +67341,13 @@ function (_Component) {
         });
 
         if (res.data.success) {
-          _this2.props.updateUser(res.data.userdata);
+          var userdata = res.data.userdata;
+          userdata.password = _this2.state.password;
 
-          Object(_utilities_utilities__WEBPACK_IMPORTED_MODULE_1__["setItem"])('userdata', res.data.userdata);
-          toastr__WEBPACK_IMPORTED_MODULE_3___default.a.success('Welcome To Falgun SMS Service', 'Hi ' + res.data.userdata.name + '!');
+          _this2.props.updateUser(userdata);
+
+          Object(_utilities_utilities__WEBPACK_IMPORTED_MODULE_1__["setItem"])('userdata', userdata);
+          toastr__WEBPACK_IMPORTED_MODULE_3___default.a.success('Welcome To Falgun SMS Service', 'Hi ' + userdata.name + '!');
 
           _this2.props.history.push('/dashboard');
         } else {
@@ -67697,10 +67697,18 @@ var Sms =
 function (_Component) {
   _inherits(Sms, _Component);
 
-  function Sms() {
+  function Sms(props) {
+    var _this;
+
     _classCallCheck(this, Sms);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(Sms).apply(this, arguments));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Sms).call(this, props));
+    _this.state = {
+      numbers: [],
+      msg: '',
+      cost: 0
+    };
+    return _this;
   }
 
   _createClass(Sms, [{
@@ -67715,33 +67723,91 @@ function (_Component) {
     value: function componentWillReceiveProps() {//console.log(this.props);
     }
   }, {
-    key: "getUser",
-    value: function getUser() {
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a.post('/users', {
-        data: ''
-      }).then(function (res) {
-        console.log(res);
-      })["catch"](function (err) {
-        console.log(err);
+    key: "cngText",
+    value: function cngText(e) {
+      var name = e.target.name;
+      var value = e.target.value;
+
+      if (name == 'numbers') {
+        this.setState({
+          numbers: value
+        });
+        this.calculateCost(value, this.state.msg);
+      } else if (name == 'msg') {
+        this.setState({
+          msg: value
+        });
+        this.calculateCost(this.state.numbers, value);
+      }
+    }
+  }, {
+    key: "calculateCost",
+    value: function calculateCost(numbers, msg) {
+      var numArray = numbers.split(',');
+      var cost = numArray.length * (Math.trunc(this.state.msg.length / 140) + 1) * 0.4;
+      this.setState({
+        cost: cost
       });
     }
   }, {
     key: "render",
     value: function render() {
       console.log(this.props);
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Header__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        userdata: this.props.userdata,
-        history: this.props.history,
-        updateUser: this.props.updateUser
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Header__WEBPACK_IMPORTED_MODULE_2__["default"], this.props), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "main-wrapper"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Sidebar__WEBPACK_IMPORTED_MODULE_3__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "main-page"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Sidebar__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        history: this.props.history
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "main-page",
+        style: {
+          width: Object(_utilities_utilities__WEBPACK_IMPORTED_MODULE_4__["mainPageWidth"])()
+        }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "row"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-12"
-      }, "sdfsd fsdfsdf sdfsdf sdf sdf sdf sdf sdf sdfs df sdfs dfsdfsdfsdf sdfsdf sdf sdf dfgdfg df dffg dffg dffg dffg dffg dffgdf g dfg dfg dfgdfgd fgd fgd fgdfg dffg df cbcbcvbb cbdcbf dfbdffg")))));
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "f-c-sb"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Send SMS"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: ""
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
+        className: this.state.cost > this.props.userdata.balance ? 'text-danger' : 'text-success'
+      }, "Cost: ", this.state.cost.toFixed(2), " ", this.state.cost > this.props.userdata.balance ? '(Not Enough Balance)' : ''))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "row"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-4"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        "class": "form-group"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        "for": "numbers"
+      }, "Add Numbers"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+        value: this.state.numbers,
+        onChange: this.cngText.bind(this),
+        "class": "form-control",
+        name: "numbers",
+        id: "numbers",
+        rows: "3"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "for multiple numbers, use ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "comma ( , )"), " for separation ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "ex:  017..001 , 019..001 , 015..001 ")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-8"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        "class": "form-group"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        "for": "msg"
+      }, "Message"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+        value: this.state.msg,
+        onChange: this.cngText.bind(this),
+        "class": "form-control",
+        name: "msg",
+        id: "msg",
+        rows: "3"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "character: ", 140 - this.state.msg.length % 140, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "(", Math.trunc(this.state.msg.length / 140) + 1, ")"))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "row"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-12"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "button",
+        "class": "btn btn-dark"
+      }, "Send"))))));
     }
   }]);
 
@@ -67786,7 +67852,7 @@ if(false) {}
 /*!********************************************************!*\
   !*** ./resources/js/components/utilities/utilities.js ***!
   \********************************************************/
-/*! exports provided: setItem, getItem, removeItem */
+/*! exports provided: setItem, getItem, removeItem, mainPageWidth */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -67794,6 +67860,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setItem", function() { return setItem; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getItem", function() { return getItem; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removeItem", function() { return removeItem; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "mainPageWidth", function() { return mainPageWidth; });
 function setItem(itamName, value) {
   if (typeof Storage !== "undefined") {
     sessionStorage.setItem(itamName, JSON.stringify(value));
@@ -67814,6 +67881,9 @@ function removeItem(itamName) {
   } else {
     alert("Sorry, your browser does not support web storage...");
   }
+}
+function mainPageWidth() {
+  return window.innerWidth - 200;
 }
 
 /***/ }),

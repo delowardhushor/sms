@@ -23,3 +23,7 @@ export function removeItem(itamName) {
   }
 }
 
+export function mainPageWidth(){
+  return window.innerWidth-200;
+}
+

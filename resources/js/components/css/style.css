@@ -115,6 +115,18 @@ body {
 
 /* my css start */
 
+.f-c-sb{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.f-c-sa{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
 .fal-header{
   display:flex;
   height: 80px;
@@ -177,12 +189,12 @@ body {
   justify-content: flex-start;
 }
 
-#main-page{
+.main-page{
   padding: 15px;
 }
 
 .sidebar{
-  width:150px;
+  width:200px;
 }
 
 .list-group-item:first-child {

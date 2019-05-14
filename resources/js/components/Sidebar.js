@@ -7,16 +7,16 @@ import {Link} from 'react-router-dom'
 export default class Sidebar extends Component {
 
     render() {
+        let {pathname} = this.props.history.location;
         return (
             <div className="sidebar shadow">
                 <div class="list-group">
-                <Link to="/" class="list-group-item list-group-item-action active">
+                <Link to="/dashboard" className={pathname == '/dashboard' ? 'list-group-item list-group-item-action active' : 'list-group-item list-group-item-action'} >
                     Dashboard
                 </Link>
-                <Link to="/sms" class="list-group-item list-group-item-action">Send SMS</Link>
-                <Link to="#" class="list-group-item list-group-item-action">Morbi leo risus</Link>
-                <Link to="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</Link>
-                <Link to="#" class="list-group-item list-group-item-action disabled">Vestibulum at eros</Link>
+                <Link to="/sms" className={pathname == '/sms' ? 'list-group-item list-group-item-action active' : 'list-group-item list-group-item-action'}>
+                    Send SMS
+                </Link>
                 </div>
             </div>
         );

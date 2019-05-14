@@ -3,7 +3,7 @@ import axios from 'axios';
 import Header from './Header';
 import Sidebar from './Sidebar';
 
-import {getItem, removeItem} from './utilities/utilities';
+import {getItem, removeItem, mainPageWidth} from './utilities/utilities';
 
 export default class Dashboard extends Component {
 
@@ -35,9 +35,9 @@ export default class Dashboard extends Component {
         return (
             <div>
                 <Header userdata={this.props.userdata} history={this.props.history} updateUser={this.props.updateUser} />
-                <div className='main-wrapper'>
-                    <Sidebar />
-                    <div id='main-page'>
+                <div className='main-wrapper' style={{width:mainPageWidth()}}>
+                    <Sidebar history={this.props.history} />
+                    <div className='main-page'>
                         <div className="row">
                             <div className='col-12'>
                                 

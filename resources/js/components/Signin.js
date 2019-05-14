@@ -31,9 +31,11 @@ export default class Signin extends Component {
         .then((res)=> {
             this.setState({loginLoading:false});
             if(res.data.success){
-                this.props.updateUser(res.data.userdata);
-                setItem('userdata', res.data.userdata);
-                toastr.success('Welcome To Falgun SMS Service', 'Hi '+res.data.userdata.name+'!');
+                var userdata = res.data.userdata;
+                userdata.password = this.state.password;
+                this.props.updateUser(userdata);
+                setItem('userdata', userdata);
+                toastr.success('Welcome To Falgun SMS Service', 'Hi '+userdata.name+'!');
                 this.props.history.push('/dashboard');
             }else{
                 toastr.error(res.data.msg);
