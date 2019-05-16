@@ -33,7 +33,7 @@ export default class Header extends Component {
                 <div className='header-right'>
                     <span>Balance ৳ {userdata.balance}</span>
                     <span className="user-btn">
-                        <i onClick={() => this.setState({showAccount:!this.state.showAccount})} className='fas fa-user-circle'></i>
+                        <i onClick={() => this.setState({showAccount:!this.state.showAccount})} onBlur={()=> this.setState({showAccount:false})} className='fas fa-user-circle'></i>
                         {(this.state.showAccount) &&
                         <div className="account-btn-wrapper">
                             <Link to='/'>Profile</Link>

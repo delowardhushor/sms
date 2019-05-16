@@ -202,6 +202,20 @@ body {
   border-top-right-radius: 0px;
 }
 
+.closable-tag {
+  padding: 5px 10px;
+  border-radius: 20px;
+  background: #000;
+  color: #fff;
+  margin: 0px 10px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.closable-tag i{
+  margin-left: 10px;
+}
+
 @media (min-width: 992px){
   .navbar-expand-lg {
       flex-flow: wrap;

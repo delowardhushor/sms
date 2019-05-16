@@ -11,12 +11,18 @@ export default class Sidebar extends Component {
         return (
             <div className="sidebar shadow">
                 <div class="list-group">
-                <Link to="/dashboard" className={pathname == '/dashboard' ? 'list-group-item list-group-item-action active' : 'list-group-item list-group-item-action'} >
-                    Dashboard
-                </Link>
-                <Link to="/sms" className={pathname == '/sms' ? 'list-group-item list-group-item-action active' : 'list-group-item list-group-item-action'}>
-                    Send SMS
-                </Link>
+                    <Link to="/dashboard" className={pathname == '/dashboard' ? 'list-group-item list-group-item-action active' : 'list-group-item list-group-item-action'} >
+                        Dashboard
+                    </Link>
+                    <Link to="/sms" className={pathname == '/sms' ? 'list-group-item list-group-item-action active' : 'list-group-item list-group-item-action'}>
+                        Send SMS
+                    </Link>
+                    <Link to="/recharge" className={pathname == '/recharge' ? 'list-group-item list-group-item-action active' : 'list-group-item list-group-item-action'}>
+                        Recharge Account
+                    </Link>
+                    <Link to="/doc/api" className={pathname == '/doc/api' ? 'list-group-item list-group-item-action active' : 'list-group-item list-group-item-action'}>
+                        API Documentation
+                    </Link>
                 </div>
             </div>
         );

@@ -10,6 +10,8 @@ import Dashboard from './Dashboard';
 import Signin from './Signin';
 import Signup from './Signup';
 import Sms from './Sms';
+import DocApi from './DocApi';
+import Recharge from './Recharge';
 
 import toastr from 'toastr';
 
@@ -92,6 +94,16 @@ export default class App extends Component {
                         exact 
                         path="/sms" 
                         render={(props) => <Sms {...props} userdata={this.state.userdata} updateUser={this.updateUser} />} 
+                    />
+                    <Route
+                        exact 
+                        path="/recharge" 
+                        render={(props) => <Recharge {...props} userdata={this.state.userdata} updateUser={this.updateUser} />} 
+                    />
+                    <Route
+                        exact 
+                        path="/doc/api" 
+                        render={(props) => <DocApi {...props} userdata={this.state.userdata} updateUser={this.updateUser} />} 
                     />
                 </div>
             </HashRouter>

@@ -5,12 +5,14 @@ import Sidebar from './Sidebar';
 
 import {getItem, removeItem, mainPageWidth} from './utilities/utilities';
 
+import toastr from "toastr";
+
 export default class Sms extends Component {
 
     constructor(props){
 		super(props);
 		this.state={
-            numbers:[],
+            numbers:'',
             msg:'',
             cost:0,
         };
@@ -44,6 +46,32 @@ export default class Sms extends Component {
         this.setState({cost:cost});
     }
 
+    chkValidNum(){
+        var numbers = this.state.numbers;
+        var numArray = numbers.split(',');
+        var notvalid = false;
+        for(var i = 0; i < numArray.length; i++){
+            if(isNaN(numArray[i].replace('+',''))){
+                return true;
+                break;
+            }
+        }
+        return notvalid;
+    }
+
+    sendSms(){
+        if(this.chkValidNum()){
+            toastr.error('INvalid Number(s)', 'Attention!');
+        }
+        else if(this.state.cost > this.props.userdata.balance){
+            toastr.error('Not Enough Balance', 'Attention!');
+        }else if(!this.state.msg){
+            toastr.error('Message Empty', 'Attention!');
+        }else if(!this.state.numbers){
+            toastr.error('Please Add Number', 'Attention!');
+        }
+    }
+
 
     render() {
         console.log(this.props)
@@ -67,6 +95,7 @@ export default class Sms extends Component {
                             <div className='col-4'>
                                 <div class="form-group">
                                     <label for="numbers">Add Numbers</label>
+                                    {this.chkValidNum() ? <p className='text-danger'>Invalid Number(s)</p> : null}
                                     <textarea value={this.state.numbers} onChange={this.cngText.bind(this)} class="form-control" name='numbers' id="numbers" rows="3"></textarea>
                                     <p>for multiple numbers, use <b>comma ( , )</b> for separation <br/><b>ex:  017..001 , 019..001 , 015..001 </b></p>
                                 </div>
@@ -81,7 +110,7 @@ export default class Sms extends Component {
                         </div>
                         <div className="row">
                             <div className='col-12'>
-                                <button type="button" class="btn btn-dark">Send</button>
+                                <button onClick={this.sendSms.bind(this)} type="button" class="btn btn-dark">Send</button>
                             </div>
                         </div>
                     </div>
