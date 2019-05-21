@@ -67383,16 +67383,8 @@ function (_Component) {
     value: function componentWillReceiveProps() {//console.log(this.props);
     }
   }, {
-    key: "getUser",
-    value: function getUser() {
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a.post('/users', {
-        data: ''
-      }).then(function (res) {
-        console.log(res);
-      })["catch"](function (err) {
-        console.log(err);
-      });
-    }
+    key: "rechargeRequest",
+    value: function rechargeRequest() {}
   }, {
     key: "render",
     value: function render() {
@@ -67402,19 +67394,69 @@ function (_Component) {
         history: this.props.history,
         updateUser: this.props.updateUser
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "main-wrapper",
-        style: {
-          width: Object(_utilities_utilities__WEBPACK_IMPORTED_MODULE_4__["mainPageWidth"])()
-        }
+        className: "main-wrapper"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Sidebar__WEBPACK_IMPORTED_MODULE_3__["default"], {
         history: this.props.history
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "main-page"
+        className: "main-page",
+        style: {
+          width: Object(_utilities_utilities__WEBPACK_IMPORTED_MODULE_4__["mainPageWidth"])()
+        }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "row"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-12"
-      })))));
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+        className: "text-center"
+      }, "Recharge Account"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "row"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-12"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
+        className: "text-center"
+      }, "Instruction: Send Money to ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "017....00"), " number. And Inter the Transaction id here. "))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "row justify-content-center mt-5"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-12 col-sm-6"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        "class": "form-group"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Transaction Code"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        "class": "form-control form-control",
+        type: "text",
+        placeholder: "Transaction Code"
+      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "row justify-content-center "
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-12 col-sm-6"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: this.rechargeRequest.bind(this),
+        type: "button",
+        "class": "btn btn-dark"
+      }, "Recharge"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "row mt-5"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-12"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+        className: "text-center"
+      }, "Recharge History"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "row"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-12"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        "class": "table-responsive"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
+        "class": "table table-hover"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+        scope: "col"
+      }, "Date"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+        scope: "col"
+      }, "Amount"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+        scope: "col"
+      }, "Status"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+        scope: "row"
+      }, "12th November 2019 12:34 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "$12000"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "pending")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+        scope: "row"
+      }, "12th November 2019 12:34 PM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "$12000"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "done"))))))))));
     }
   }]);
 
@@ -68045,7 +68087,9 @@ function (_Component) {
         className: "col-12"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "f-c-sb"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Send SMS"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+        className: "text-center"
+      }, "Send SMS"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: ""
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
         className: this.state.cost > this.props.userdata.balance ? 'text-danger' : 'text-success'

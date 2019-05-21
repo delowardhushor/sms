@@ -24,3 +24,7 @@ Route::post('/verify', 'UsersController@verify');
 
 Route::post('/setpin', 'UsersController@setpin');
 Route::post('/recoverpass', 'UsersController@recoverpass');
+
+Route::group(['middleware' => 'checkAuth'], function () {
+    Route::resources('/recharges', 'RechargesController');
+});

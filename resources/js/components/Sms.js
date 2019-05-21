@@ -84,7 +84,7 @@ export default class Sms extends Component {
                         <div className="row">
                             <div className="col-12">
                                 <div className="f-c-sb">
-                                    <h3>Send SMS</h3>
+                                    <h3 className="text-center">Send SMS</h3>
                                     <div className="">
                                         <h5 className={this.state.cost > this.props.userdata.balance ? 'text-danger' : 'text-success'}>Cost: {this.state.cost.toFixed(2)} {this.state.cost > this.props.userdata.balance ? '(Not Enough Balance)' : ''}</h5>
                                     </div>
