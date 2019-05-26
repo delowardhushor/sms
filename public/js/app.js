@@ -66893,6 +66893,7 @@ function (_Component) {
         this.setState({
           userdata: userdata
         });
+        this.intialdata(userdata);
       }
     }
   }, {
@@ -66913,17 +66914,35 @@ function (_Component) {
       });
     }
   }, {
+    key: "intialdata",
+    value: function intialdata(userdata) {
+      var _this2 = this;
+
+      axios.post('/intialdata', {
+        mobile: userdata.mobile,
+        password: userdata.password
+      }).then(function (res) {
+        console.log(res);
+      })["catch"](function (err) {
+        _this2.setState({
+          rechargeLoading: false
+        });
+
+        toastr__WEBPACK_IMPORTED_MODULE_11___default.a.error(err);
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
-      var _this2 = this;
+      var _this3 = this;
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["HashRouter"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         exact: true,
         path: "/",
         render: function render(props) {
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Dashboard__WEBPACK_IMPORTED_MODULE_5__["default"], _extends({}, props, {
-            userdata: _this2.state.userdata,
-            updateUser: _this2.updateUser
+            userdata: _this3.state.userdata,
+            updateUser: _this3.updateUser
           }));
         }
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
@@ -66931,8 +66950,8 @@ function (_Component) {
         path: "/dashboard",
         render: function render(props) {
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Dashboard__WEBPACK_IMPORTED_MODULE_5__["default"], _extends({}, props, {
-            userdata: _this2.state.userdata,
-            updateUser: _this2.updateUser
+            userdata: _this3.state.userdata,
+            updateUser: _this3.updateUser
           }));
         }
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
@@ -66940,8 +66959,8 @@ function (_Component) {
         path: "/signin",
         render: function render(props) {
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Signin__WEBPACK_IMPORTED_MODULE_6__["default"], _extends({}, props, {
-            userdata: _this2.state.userdata,
-            updateUser: _this2.updateUser
+            userdata: _this3.state.userdata,
+            updateUser: _this3.updateUser
           }));
         }
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
@@ -66949,8 +66968,8 @@ function (_Component) {
         path: "/signup",
         render: function render(props) {
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Signup__WEBPACK_IMPORTED_MODULE_7__["default"], _extends({}, props, {
-            userdata: _this2.state.userdata,
-            updateUser: _this2.updateUser
+            userdata: _this3.state.userdata,
+            updateUser: _this3.updateUser
           }));
         }
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
@@ -66958,8 +66977,8 @@ function (_Component) {
         path: "/sms",
         render: function render(props) {
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Sms__WEBPACK_IMPORTED_MODULE_8__["default"], _extends({}, props, {
-            userdata: _this2.state.userdata,
-            updateUser: _this2.updateUser
+            userdata: _this3.state.userdata,
+            updateUser: _this3.updateUser
           }));
         }
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
@@ -66967,8 +66986,8 @@ function (_Component) {
         path: "/recharge",
         render: function render(props) {
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Recharge__WEBPACK_IMPORTED_MODULE_10__["default"], _extends({}, props, {
-            userdata: _this2.state.userdata,
-            updateUser: _this2.updateUser
+            userdata: _this3.state.userdata,
+            updateUser: _this3.updateUser
           }));
         }
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
@@ -66976,8 +66995,8 @@ function (_Component) {
         path: "/doc/api",
         render: function render(props) {
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_DocApi__WEBPACK_IMPORTED_MODULE_9__["default"], _extends({}, props, {
-            userdata: _this2.state.userdata,
-            updateUser: _this2.updateUser
+            userdata: _this3.state.userdata,
+            updateUser: _this3.updateUser
           }));
         }
       })));
@@ -67365,10 +67384,17 @@ var Recharge =
 function (_Component) {
   _inherits(Recharge, _Component);
 
-  function Recharge() {
+  function Recharge(props) {
+    var _this;
+
     _classCallCheck(this, Recharge);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(Recharge).apply(this, arguments));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Recharge).call(this, props));
+    _this.state = {
+      rechargeLoading: false,
+      tranCode: ''
+    };
+    return _this;
   }
 
   _createClass(Recharge, [{
@@ -67383,8 +67409,49 @@ function (_Component) {
     value: function componentWillReceiveProps() {//console.log(this.props);
     }
   }, {
+    key: "cngText",
+    value: function cngText(e) {
+      var name = e.target.name;
+      var value = e.target.value;
+
+      if (name == 'tranCode') {
+        this.setState({
+          tranCode: value
+        });
+      }
+    }
+  }, {
     key: "rechargeRequest",
-    value: function rechargeRequest() {}
+    value: function rechargeRequest() {
+      var _this2 = this;
+
+      this.setState({
+        rechargeLoading: true
+      });
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.post('/recharges', {
+        mobile: this.props.userdata.mobile,
+        password: this.props.userdata.password,
+        code: this.state.tranCode
+      }).then(function (res) {
+        _this2.setState({
+          rechargeLoading: false
+        });
+
+        console.log(res);
+
+        if (res.data.success) {
+          toastr.success('Please wait for confirmation, Refresh after 2-3 minutes.', "Recharge Complete");
+        } else {
+          toastr.error(res.data.msg);
+        }
+      })["catch"](function (err) {
+        _this2.setState({
+          rechargeLoading: false
+        });
+
+        toastr.error(err);
+      });
+    }
   }, {
     key: "render",
     value: function render() {
@@ -67421,6 +67488,9 @@ function (_Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         "class": "form-group"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Transaction Code"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        onChange: this.cngText.bind(this),
+        value: this.state.tranCode,
+        name: "tranCode",
         "class": "form-control form-control",
         type: "text",
         placeholder: "Transaction Code"
@@ -67431,8 +67501,13 @@ function (_Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: this.rechargeRequest.bind(this),
         type: "button",
-        "class": "btn btn-dark"
-      }, "Recharge"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        "class": "btn btn-dark btn-sm"
+      }, this.state.rechargeLoading ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        "class": "spinner-border spinner-border-sm",
+        role: "status"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        "class": "sr-only"
+      }, "Loading...")) : 'Recharge'))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "row mt-5"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-12"
@@ -68130,7 +68205,7 @@ function (_Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: this.sendSms.bind(this),
         type: "button",
-        "class": "btn btn-dark"
+        "class": "btn btn-dark btn-sm"
       }, "Send"))))));
     }
   }]);
@@ -68230,8 +68305,8 @@ function mainPageWidth() {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\learn\laraval\sms\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\learn\laraval\sms\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! E:\lara\sms\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! E:\lara\sms\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

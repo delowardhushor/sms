@@ -2,13 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Recharges;
+use App\Messages;
 use Illuminate\Http\Request;
 
 use App\Users;
 
-class RechargesController extends Controller
+class MessagesController extends Controller
 {
+    public function intialdata(Request $request)
+    {
+        $Users = Users::where("mobile", "=", $request->input('mobile'))->first();
+        return ['success' => true, 'messages' => $Users->messages, 'recharges' => $Users->recharges];
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +22,7 @@ class RechargesController extends Controller
      */
     public function index()
     {
-        return "dfdfdfd";
+        
     }
 
     /**
@@ -37,24 +43,16 @@ class RechargesController extends Controller
      */
     public function store(Request $request)
     {
-        $Users = Users::where("mobile", "=", $request->input('mobile'))->first();
-        $recharges = new Recharges;
-        $recharges->users_id = $Users->id;
-        $recharges->code = $request->input("code");
-        if($recharges->save()){
-            return ['success' => true, 'recharge' => Recharges::find($recharges->id)];
-        }else{
-            return ['success' => false, 'msg' => "Recharge Failed"];
-        }
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Recharges  $recharges
+     * @param  \App\messages  $messages
      * @return \Illuminate\Http\Response
      */
-    public function show(Recharges $recharges)
+    public function show(messages $messages)
     {
         //
     }
@@ -62,10 +60,10 @@ class RechargesController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Recharges  $recharges
+     * @param  \App\messages  $messages
      * @return \Illuminate\Http\Response
      */
-    public function edit(Recharges $recharges)
+    public function edit(messages $messages)
     {
         //
     }
@@ -74,10 +72,10 @@ class RechargesController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Recharges  $recharges
+     * @param  \App\messages  $messages
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Recharges $recharges)
+    public function update(Request $request, messages $messages)
     {
         //
     }
@@ -85,10 +83,10 @@ class RechargesController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Recharges  $recharges
+     * @param  \App\messages  $messages
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Recharges $recharges)
+    public function destroy(messages $messages)
     {
         //
     }

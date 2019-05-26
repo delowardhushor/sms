@@ -47,6 +47,7 @@ export default class App extends Component {
         var userdata = getItem('userdata');
         if(userdata != null){
             this.setState({userdata:userdata});
+            this.intialdata(userdata);
         }
     }
 
@@ -60,6 +61,20 @@ export default class App extends Component {
     updateUser(data){
         console.log(data);
         this.setState({userdata:data});
+    }
+
+    intialdata(userdata){
+        axios.post('/intialdata', {
+            mobile:userdata.mobile,
+            password:userdata.password,
+        })
+        .then((res)=> {
+            console.log(res);
+        })
+        .catch((err)=> {
+            this.setState({rechargeLoading:false});
+            toastr.error(err);
+        })
     }
 
     render() {

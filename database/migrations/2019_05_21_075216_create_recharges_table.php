@@ -15,6 +15,7 @@ class CreateRechargesTable extends Migration
     {
         Schema::create('recharges', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('users_id');
             $table->string('code');
             $table->string('number')->nullable();
             $table->string('amount')->nullable();

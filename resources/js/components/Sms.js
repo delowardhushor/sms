@@ -110,7 +110,7 @@ export default class Sms extends Component {
                         </div>
                         <div className="row">
                             <div className='col-12'>
-                                <button onClick={this.sendSms.bind(this)} type="button" class="btn btn-dark">Send</button>
+                                <button onClick={this.sendSms.bind(this)} type="button" class="btn btn-dark btn-sm">Send</button>
                             </div>
                         </div>
                     </div>

@@ -7,6 +7,14 @@ import {getItem, removeItem, mainPageWidth} from './utilities/utilities';
 
 export default class Recharge extends Component {
 
+    constructor(props){
+		super(props);
+		this.state={
+            rechargeLoading:false,
+            tranCode: '',
+		};
+	}
+
     componentWillMount(){
         if(this.props.userdata == null || this.props.userdata == ''){
             this.props.history.push('/signin');
@@ -17,8 +25,34 @@ export default class Recharge extends Component {
         //console.log(this.props);
     }
 
+    cngText(e){
+        var name = e.target.name;
+        var value = e.target.value;
+        if(name == 'tranCode'){
+            this.setState({tranCode:value});
+        }
+    }
+
     rechargeRequest(){
-       
+        this.setState({rechargeLoading:true});
+        axios.post('/recharges', {
+            mobile:this.props.userdata.mobile,
+            password:this.props.userdata.password,
+            code:this.state.tranCode
+        })
+        .then((res)=> {
+            this.setState({rechargeLoading:false});
+            console.log(res);
+            if(res.data.success){
+                toastr.success('Please wait for confirmation, Refresh after 2-3 minutes.', "Recharge Complete");
+            }else{
+                toastr.error(res.data.msg);
+            }
+        })
+        .catch((err)=> {
+            this.setState({rechargeLoading:false});
+            toastr.error(err);
+        })
     }
 
 
@@ -44,13 +78,21 @@ export default class Recharge extends Component {
                             <div className='col-12 col-sm-6'>
                                 <div class="form-group">
                                     <label >Transaction Code</label>
-                                    <input class="form-control form-control" type="text" placeholder="Transaction Code"></input>
+                                    <input onChange={this.cngText.bind(this)} value={this.state.tranCode} name='tranCode' class="form-control form-control" type="text" placeholder="Transaction Code"></input>
                                 </div>
                             </div>
                         </div>
                         <div className="row justify-content-center ">
                             <div className='col-12 col-sm-6'>
-                                <button onClick={this.rechargeRequest.bind(this)} type="button" class="btn btn-dark">Recharge</button>
+                                <button onClick={this.rechargeRequest.bind(this)} type="button" class="btn btn-dark btn-sm">
+                                    {this.state.rechargeLoading ? 
+                                        <div class="spinner-border spinner-border-sm" role="status">
+                                            <span class="sr-only">Loading...</span>
+                                        </div> 
+                                            : 
+                                        'Recharge'
+                                    }
+                                </button>
                             </div>
                         </div>
                         <div className='row mt-5'>
