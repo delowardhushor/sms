@@ -113,6 +113,14 @@ body {
   background-color: transparent;
 }
 
+.completed{
+  color: #38c172 !important;
+}
+
+.suspended{
+  color: #e3342f !important;
+}
+
 /* my css start */
 
 .f-c-sb{

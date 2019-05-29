@@ -39,6 +39,10 @@ export default class App extends Component {
 		super(props);
 		this.state={
             userdata:'',
+            sitedata:{
+                messages:[],
+                recharges:[]
+            }
         };
         this.updateUser = this.updateUser.bind(this);
     }
@@ -59,7 +63,6 @@ export default class App extends Component {
     }
 
     updateUser(data){
-        console.log(data);
         this.setState({userdata:data});
     }
 
@@ -70,6 +73,12 @@ export default class App extends Component {
         })
         .then((res)=> {
             console.log(res);
+            if(res.data.success){
+                var sitedata = {};
+                sitedata.messages = res.data.messages;
+                sitedata.recharges = res.data.recharges;
+                this.setState({sitedata:sitedata});
+            }
         })
         .catch((err)=> {
             this.setState({rechargeLoading:false});
@@ -78,6 +87,7 @@ export default class App extends Component {
     }
 
     render() {
+        let {sitedata, userdata} = this.state;
         return (
             <HashRouter>
                 <div>
@@ -88,37 +98,37 @@ export default class App extends Component {
                     <Route
                         exact 
                         path="/" 
-                        render={(props) => <Dashboard {...props} userdata={this.state.userdata} updateUser={this.updateUser} />} 
+                        render={(props) => <Dashboard {...props} userdata={userdata} updateUser={this.updateUser} />} 
                     />
                     <Route
                         exact 
                         path="/dashboard" 
-                        render={(props) => <Dashboard {...props} userdata={this.state.userdata} updateUser={this.updateUser} />} 
+                        render={(props) => <Dashboard {...props} userdata={userdata} updateUser={this.updateUser} />} 
                     />
                     <Route
                         exact 
                         path="/signin" 
-                        render={(props) => <Signin {...props} userdata={this.state.userdata} updateUser={this.updateUser} />} 
+                        render={(props) => <Signin {...props} userdata={userdata} updateUser={this.updateUser} />} 
                     />
                     <Route
                         exact 
                         path="/signup" 
-                        render={(props) => <Signup {...props} userdata={this.state.userdata} updateUser={this.updateUser} />} 
+                        render={(props) => <Signup {...props} userdata={userdata} updateUser={this.updateUser} />} 
                     />
                     <Route
                         exact 
                         path="/sms" 
-                        render={(props) => <Sms {...props} userdata={this.state.userdata} updateUser={this.updateUser} />} 
+                        render={(props) => <Sms {...props} sitedata={sitedata} userdata={userdata} updateUser={this.updateUser} />} 
                     />
                     <Route
                         exact 
                         path="/recharge" 
-                        render={(props) => <Recharge {...props} userdata={this.state.userdata} updateUser={this.updateUser} />} 
+                        render={(props) => <Recharge {...props} sitedata={sitedata} userdata={userdata} updateUser={this.updateUser} />} 
                     />
                     <Route
                         exact 
                         path="/doc/api" 
-                        render={(props) => <DocApi {...props} userdata={this.state.userdata} updateUser={this.updateUser} />} 
+                        render={(props) => <DocApi {...props} userdata={userdata} updateUser={this.updateUser} />} 
                     />
                 </div>
             </HashRouter>

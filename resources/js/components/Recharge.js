@@ -57,7 +57,25 @@ export default class Recharge extends Component {
 
 
     render() {
-        console.log(this.props)
+
+        const Recharges = this.props.sitedata.recharges.map((data, index) => {
+            return (
+                <tr key={index}>
+                    <td scope="row">{data.created_at}</td>
+                    <td>{data.amount == null ? "--" : "৳"+data.amount}</td>
+                    <td className={data.status}>
+                        {(data.status === 'pending')&&
+                            <div class="spinner-border spinner-border-sm" role="status">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                        }
+                        {data.status}
+                    </td>
+                </tr>
+            );
+        });
+
+
         return (
             <div>
                 <Header userdata={this.props.userdata} history={this.props.history} updateUser={this.props.updateUser} />
@@ -112,16 +130,7 @@ export default class Recharge extends Component {
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                            <td scope="row">12th November 2019 12:34 PM</td>
-                                            <td>$12000</td>
-                                            <td>pending</td>
-                                            </tr>
-                                            <tr>
-                                            <td scope="row">12th November 2019 12:34 PM</td>
-                                            <td>$12000</td>
-                                            <td>done</td>
-                                            </tr>
+                                            {Recharges}
                                         </tbody>
                                     </table>
                                 </div>
