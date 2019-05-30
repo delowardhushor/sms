@@ -27,6 +27,9 @@ Route::post('/recoverpass', 'UsersController@recoverpass');
 
 Route::group(['middleware' => 'checkAuth'], function () {
     Route::post('/intialdata', 'MessagesController@intialdata');
+
+    Route::post('/getrecharges', 'RechargesController@index');
     Route::post('/recharges', 'RechargesController@store');
+    Route::post('/checkpending', 'RechargesController@checkpending');
 });
 

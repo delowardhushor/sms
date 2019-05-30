@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import toastr from "toastr";
 import Header from './Header';
 import Sidebar from './Sidebar';
 
@@ -10,6 +11,8 @@ export default class Recharge extends Component {
     constructor(props){
 		super(props);
 		this.state={
+            watchChange:false,
+            recharges:[],
             rechargeLoading:false,
             tranCode: '',
 		};
@@ -18,11 +21,73 @@ export default class Recharge extends Component {
     componentWillMount(){
         if(this.props.userdata == null || this.props.userdata == ''){
             this.props.history.push('/signin');
+        }else{
+            axios.post('/getrecharges', {
+                mobile:this.props.userdata.mobile,
+                password:this.props.userdata.password,
+            })
+            .then((res)=> {
+                console.log(res)
+                // if(res.data !== null){
+                //     this.setState({recharges:res.data});
+                // }
+            })
+            .catch((err)=> {
+                console.log(err);
+            })
         }
     }
 
     componentWillReceiveProps(){
         //console.log(this.props);
+    }
+
+    componentDidMount(){
+        setInterval(() => {
+
+           var chkPending =  this.chkPending();
+
+           if(chkPending.exist){
+                axios.post('/checkpending', {
+                    mobile:this.props.userdata.mobile,
+                    password:this.props.userdata.password,
+                    id:chkPending.id
+                })
+                .then((res)=> {
+                    console.log(res)
+                    if(res.data.success){
+                        this.state.recharges[chkPending.index].status = res.data.status;
+                        this.setState({watchChange:!this.state.watchChange});
+                        // if(res.data.status == 'completed'){
+                        //     toastr.success('Thanks for using Falgun SMS', "Recharge Verified");
+                        // }else{
+                        //     toastr.error('Please check your Transaction Code', "Recharge Suspended");
+                        // }
+                    }
+                })
+                .catch((err)=> {
+                    console.log(err);
+                })
+            }
+
+        }, 10000)
+    }
+
+    chkPending(){
+        let {recharges} = this.state;
+        var exist = false;
+        var id = '';
+        var index = '';
+        for(var i = 0; i < recharges.length; i++){
+            if(recharges[i].status == 'pending'){
+                exist = true;
+                id = recharges[i].id;
+                index = i;
+                break;
+            }
+            
+        }
+        return {exist:exist, id:id, index:index}
     }
 
     cngText(e){
@@ -41,13 +106,14 @@ export default class Recharge extends Component {
             code:this.state.tranCode
         })
         .then((res)=> {
-            this.setState({rechargeLoading:false});
-            console.log(res);
+            
             if(res.data.success){
+                this.state.recharges.push(res.data.recharge);
                 toastr.success('Please wait for confirmation, Refresh after 2-3 minutes.', "Recharge Complete");
             }else{
                 toastr.error(res.data.msg);
             }
+            this.setState({rechargeLoading:false});
         })
         .catch((err)=> {
             this.setState({rechargeLoading:false});
@@ -58,7 +124,7 @@ export default class Recharge extends Component {
 
     render() {
 
-        const Recharges = this.props.sitedata.recharges.map((data, index) => {
+        const Recharges = this.state.recharges.map((data, index) => {
             return (
                 <tr key={index}>
                     <td scope="row">{data.created_at}</td>
@@ -69,7 +135,7 @@ export default class Recharge extends Component {
                                 <span class="sr-only">Loading...</span>
                             </div>
                         }
-                        {data.status}
+                        <span className="ml-1">{data.status}</span>
                     </td>
                 </tr>
             );

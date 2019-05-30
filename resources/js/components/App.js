@@ -45,6 +45,7 @@ export default class App extends Component {
             }
         };
         this.updateUser = this.updateUser.bind(this);
+        this.updateInitialData = this.updateInitialData.bind(this);
     }
     
     componentWillMount(){
@@ -81,9 +82,14 @@ export default class App extends Component {
             }
         })
         .catch((err)=> {
-            this.setState({rechargeLoading:false});
             toastr.error(err);
         })
+    }
+
+    updateInitialData(field, data){
+        var sitedata = JSON.parse(JSON.stringify(this.state.sitedata));
+        sitedata[field] = data;
+        this.setState({sitedata:sitedata});
     }
 
     render() {

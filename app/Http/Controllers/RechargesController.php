@@ -14,9 +14,20 @@ class RechargesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return "dfdfdfd";
+        $Users = Users::where('mobile', '=', $request->input('mobile'))->first();
+        return Recharges::paginate(50);
+    }
+
+    public function checkpending(Request $request)
+    {
+        $recharges = Recharges::find($request->input('id'));
+        if($recharges->status == 'pending'){
+            return ['success' => false];
+        }else{
+            return ['success' => true, 'status' => $recharges->status];
+        }
     }
 
     /**

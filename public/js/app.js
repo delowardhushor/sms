@@ -66885,6 +66885,7 @@ function (_Component) {
       }
     };
     _this.updateUser = _this.updateUser.bind(_assertThisInitialized(_this));
+    _this.updateInitialData = _this.updateInitialData.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -66937,11 +66938,16 @@ function (_Component) {
           });
         }
       })["catch"](function (err) {
-        _this2.setState({
-          rechargeLoading: false
-        });
-
         toastr__WEBPACK_IMPORTED_MODULE_11___default.a.error(err);
+      });
+    }
+  }, {
+    key: "updateInitialData",
+    value: function updateInitialData(field, data) {
+      var sitedata = JSON.parse(JSON.stringify(this.state.sitedata));
+      sitedata[field] = data;
+      this.setState({
+        sitedata: sitedata
       });
     }
   }, {
@@ -67370,9 +67376,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _Header__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Header */ "./resources/js/components/Header.js");
-/* harmony import */ var _Sidebar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Sidebar */ "./resources/js/components/Sidebar.js");
-/* harmony import */ var _utilities_utilities__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./utilities/utilities */ "./resources/js/components/utilities/utilities.js");
+/* harmony import */ var toastr__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! toastr */ "./node_modules/toastr/toastr.js");
+/* harmony import */ var toastr__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(toastr__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _Header__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Header */ "./resources/js/components/Header.js");
+/* harmony import */ var _Sidebar__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Sidebar */ "./resources/js/components/Sidebar.js");
+/* harmony import */ var _utilities_utilities__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./utilities/utilities */ "./resources/js/components/utilities/utilities.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -67397,6 +67405,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+
 var Recharge =
 /*#__PURE__*/
 function (_Component) {
@@ -67409,6 +67418,8 @@ function (_Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Recharge).call(this, props));
     _this.state = {
+      watchChange: false,
+      recharges: [],
       rechargeLoading: false,
       tranCode: ''
     };
@@ -67420,11 +67431,79 @@ function (_Component) {
     value: function componentWillMount() {
       if (this.props.userdata == null || this.props.userdata == '') {
         this.props.history.push('/signin');
+      } else {
+        axios__WEBPACK_IMPORTED_MODULE_1___default.a.post('/getrecharges', {
+          mobile: this.props.userdata.mobile,
+          password: this.props.userdata.password
+        }).then(function (res) {
+          console.log(res); // if(res.data !== null){
+          //     this.setState({recharges:res.data});
+          // }
+        })["catch"](function (err) {
+          console.log(err);
+        });
       }
     }
   }, {
     key: "componentWillReceiveProps",
     value: function componentWillReceiveProps() {//console.log(this.props);
+    }
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      setInterval(function () {
+        var chkPending = _this2.chkPending();
+
+        if (chkPending.exist) {
+          axios__WEBPACK_IMPORTED_MODULE_1___default.a.post('/checkpending', {
+            mobile: _this2.props.userdata.mobile,
+            password: _this2.props.userdata.password,
+            id: chkPending.id
+          }).then(function (res) {
+            console.log(res);
+
+            if (res.data.success) {
+              _this2.state.recharges[chkPending.index].status = res.data.status;
+
+              _this2.setState({
+                watchChange: !_this2.state.watchChange
+              }); // if(res.data.status == 'completed'){
+              //     toastr.success('Thanks for using Falgun SMS', "Recharge Verified");
+              // }else{
+              //     toastr.error('Please check your Transaction Code', "Recharge Suspended");
+              // }
+
+            }
+          })["catch"](function (err) {
+            console.log(err);
+          });
+        }
+      }, 10000);
+    }
+  }, {
+    key: "chkPending",
+    value: function chkPending() {
+      var recharges = this.state.recharges;
+      var exist = false;
+      var id = '';
+      var index = '';
+
+      for (var i = 0; i < recharges.length; i++) {
+        if (recharges[i].status == 'pending') {
+          exist = true;
+          id = recharges[i].id;
+          index = i;
+          break;
+        }
+      }
+
+      return {
+        exist: exist,
+        id: id,
+        index: index
+      };
     }
   }, {
     key: "cngText",
@@ -67441,7 +67520,7 @@ function (_Component) {
   }, {
     key: "rechargeRequest",
     value: function rechargeRequest() {
-      var _this2 = this;
+      var _this3 = this;
 
       this.setState({
         rechargeLoading: true
@@ -67451,29 +67530,29 @@ function (_Component) {
         password: this.props.userdata.password,
         code: this.state.tranCode
       }).then(function (res) {
-        _this2.setState({
-          rechargeLoading: false
-        });
-
-        console.log(res);
-
         if (res.data.success) {
-          toastr.success('Please wait for confirmation, Refresh after 2-3 minutes.', "Recharge Complete");
+          _this3.state.recharges.push(res.data.recharge);
+
+          toastr__WEBPACK_IMPORTED_MODULE_2___default.a.success('Please wait for confirmation, Refresh after 2-3 minutes.', "Recharge Complete");
         } else {
-          toastr.error(res.data.msg);
+          toastr__WEBPACK_IMPORTED_MODULE_2___default.a.error(res.data.msg);
         }
+
+        _this3.setState({
+          rechargeLoading: false
+        });
       })["catch"](function (err) {
-        _this2.setState({
+        _this3.setState({
           rechargeLoading: false
         });
 
-        toastr.error(err);
+        toastr__WEBPACK_IMPORTED_MODULE_2___default.a.error(err);
       });
     }
   }, {
     key: "render",
     value: function render() {
-      var Recharges = this.props.sitedata.recharges.map(function (data, index) {
+      var Recharges = this.state.recharges.map(function (data, index) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", {
           key: index
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
@@ -67485,20 +67564,22 @@ function (_Component) {
           role: "status"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
           "class": "sr-only"
-        }, "Loading...")), data.status));
+        }, "Loading...")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+          className: "ml-1"
+        }, data.status)));
       });
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Header__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Header__WEBPACK_IMPORTED_MODULE_3__["default"], {
         userdata: this.props.userdata,
         history: this.props.history,
         updateUser: this.props.updateUser
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "main-wrapper"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Sidebar__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Sidebar__WEBPACK_IMPORTED_MODULE_4__["default"], {
         history: this.props.history
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "main-page",
         style: {
-          width: Object(_utilities_utilities__WEBPACK_IMPORTED_MODULE_4__["mainPageWidth"])()
+          width: Object(_utilities_utilities__WEBPACK_IMPORTED_MODULE_5__["mainPageWidth"])()
         }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "row"
@@ -68332,8 +68413,8 @@ function mainPageWidth() {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! E:\lara\sms\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! E:\lara\sms\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\learn\laraval\sms\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\learn\laraval\sms\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
