@@ -66912,10 +66912,11 @@ function (_Component) {
     }
   }, {
     key: "updateUser",
-    value: function updateUser(data) {
+    value: function updateUser(userdata) {
       this.setState({
-        userdata: data
+        userdata: userdata
       });
+      Object(_utilities_utilities__WEBPACK_IMPORTED_MODULE_3__["setItem"])('userdata', userdata);
     }
   }, {
     key: "intialdata",
@@ -66929,13 +66930,14 @@ function (_Component) {
         console.log(res);
 
         if (res.data.success) {
-          var sitedata = {};
-          sitedata.messages = res.data.messages;
-          sitedata.recharges = res.data.recharges;
+          userdata.balance = res.data.userdata.balance;
 
           _this2.setState({
-            sitedata: sitedata
+            userdata: userdata
           });
+        } else {
+          Object(_utilities_utilities__WEBPACK_IMPORTED_MODULE_3__["removeItem"])('userdata');
+          toastr__WEBPACK_IMPORTED_MODULE_11___default.a.error("Please Signin", "Session Expired");
         }
       })["catch"](function (err) {
         toastr__WEBPACK_IMPORTED_MODULE_11___default.a.error(err);
@@ -67419,7 +67421,9 @@ function (_Component) {
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Recharge).call(this, props));
     _this.state = {
       watchChange: false,
-      recharges: [],
+      recharges: {
+        data: []
+      },
       rechargeLoading: false,
       tranCode: ''
     };
@@ -67432,49 +67436,60 @@ function (_Component) {
       if (this.props.userdata == null || this.props.userdata == '') {
         this.props.history.push('/signin');
       } else {
-        axios__WEBPACK_IMPORTED_MODULE_1___default.a.post('/getrecharges', {
-          mobile: this.props.userdata.mobile,
-          password: this.props.userdata.password
-        }).then(function (res) {
-          console.log(res); // if(res.data !== null){
-          //     this.setState({recharges:res.data});
-          // }
-        })["catch"](function (err) {
-          console.log(err);
-        });
+        this.loadRecharge();
       }
     }
   }, {
-    key: "componentWillReceiveProps",
-    value: function componentWillReceiveProps() {//console.log(this.props);
+    key: "loadRecharge",
+    value: function loadRecharge() {
+      var _this2 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.post('/getrecharges', {
+        mobile: this.props.userdata.mobile,
+        password: this.props.userdata.password
+      }).then(function (res) {
+        if (res.data !== null) {
+          _this2.setState({
+            recharges: res.data
+          });
+        }
+      })["catch"](function (err) {
+        console.log(err);
+      });
     }
+  }, {
+    key: "componentWillReceiveProps",
+    value: function componentWillReceiveProps() {}
   }, {
     key: "componentDidMount",
     value: function componentDidMount() {
-      var _this2 = this;
+      var _this3 = this;
 
       setInterval(function () {
-        var chkPending = _this2.chkPending();
+        var chkPending = _this3.chkPending();
+
+        console.log(chkPending);
 
         if (chkPending.exist) {
           axios__WEBPACK_IMPORTED_MODULE_1___default.a.post('/checkpending', {
-            mobile: _this2.props.userdata.mobile,
-            password: _this2.props.userdata.password,
+            mobile: _this3.props.userdata.mobile,
+            password: _this3.props.userdata.password,
             id: chkPending.id
           }).then(function (res) {
             console.log(res);
 
             if (res.data.success) {
-              _this2.state.recharges[chkPending.index].status = res.data.status;
+              _this3.loadRecharge();
 
-              _this2.setState({
-                watchChange: !_this2.state.watchChange
-              }); // if(res.data.status == 'completed'){
-              //     toastr.success('Thanks for using Falgun SMS', "Recharge Verified");
-              // }else{
-              //     toastr.error('Please check your Transaction Code', "Recharge Suspended");
-              // }
+              _this3.props.userdata.balance = res.data.balance;
 
+              _this3.props.updateUser(_this3.props.userdata);
+
+              if (res.data.status == 'completed') {
+                toastr__WEBPACK_IMPORTED_MODULE_2___default.a.success('Thanks for using Falgun SMS', "Recharge Verified");
+              } else {
+                toastr__WEBPACK_IMPORTED_MODULE_2___default.a.error('Please check your Transaction Code', "Recharge Suspended");
+              }
             }
           })["catch"](function (err) {
             console.log(err);
@@ -67485,15 +67500,15 @@ function (_Component) {
   }, {
     key: "chkPending",
     value: function chkPending() {
-      var recharges = this.state.recharges;
+      var data = this.state.recharges.data;
       var exist = false;
       var id = '';
       var index = '';
 
-      for (var i = 0; i < recharges.length; i++) {
-        if (recharges[i].status == 'pending') {
+      for (var i = 0; i < data.length; i++) {
+        if (data[i].status == 'pending') {
           exist = true;
-          id = recharges[i].id;
+          id = data[i].id;
           index = i;
           break;
         }
@@ -67520,7 +67535,7 @@ function (_Component) {
   }, {
     key: "rechargeRequest",
     value: function rechargeRequest() {
-      var _this3 = this;
+      var _this4 = this;
 
       this.setState({
         rechargeLoading: true
@@ -67531,18 +67546,18 @@ function (_Component) {
         code: this.state.tranCode
       }).then(function (res) {
         if (res.data.success) {
-          _this3.state.recharges.push(res.data.recharge);
+          _this4.loadRecharge();
 
           toastr__WEBPACK_IMPORTED_MODULE_2___default.a.success('Please wait for confirmation, Refresh after 2-3 minutes.', "Recharge Complete");
         } else {
           toastr__WEBPACK_IMPORTED_MODULE_2___default.a.error(res.data.msg);
         }
 
-        _this3.setState({
+        _this4.setState({
           rechargeLoading: false
         });
       })["catch"](function (err) {
-        _this3.setState({
+        _this4.setState({
           rechargeLoading: false
         });
 
@@ -67552,7 +67567,7 @@ function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      var Recharges = this.state.recharges.map(function (data, index) {
+      var Recharges = this.state.recharges.data.map(function (data, index) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", {
           key: index
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
@@ -68179,7 +68194,11 @@ function (_Component) {
     _this.state = {
       numbers: '',
       msg: '',
-      cost: 0
+      cost: 0,
+      sms: {
+        data: []
+      },
+      saveMsgLoading: false
     };
     return _this;
   }
@@ -68226,11 +68245,15 @@ function (_Component) {
     key: "chkValidNum",
     value: function chkValidNum() {
       var numbers = this.state.numbers;
+      var numbers = numbers.replace(' ', '');
       var numArray = numbers.split(',');
       var notvalid = false;
 
       for (var i = 0; i < numArray.length; i++) {
         if (isNaN(numArray[i].replace('+', ''))) {
+          return true;
+          break;
+        } else if (numArray[i].length !== 0 && numArray[i].length !== 14 && numArray[i].length !== 11) {
           return true;
           break;
         }
@@ -68239,17 +68262,53 @@ function (_Component) {
       return notvalid;
     }
   }, {
+    key: "deepChk",
+    value: function deepChk() {}
+  }, {
     key: "sendSms",
     value: function sendSms() {
       if (this.chkValidNum()) {
-        toastr__WEBPACK_IMPORTED_MODULE_5___default.a.error('INvalid Number(s)', 'Attention!');
+        toastr__WEBPACK_IMPORTED_MODULE_5___default.a.error('Invalid Number(s)', 'Attention!');
       } else if (this.state.cost > this.props.userdata.balance) {
         toastr__WEBPACK_IMPORTED_MODULE_5___default.a.error('Not Enough Balance', 'Attention!');
       } else if (!this.state.msg) {
         toastr__WEBPACK_IMPORTED_MODULE_5___default.a.error('Message Empty', 'Attention!');
       } else if (!this.state.numbers) {
         toastr__WEBPACK_IMPORTED_MODULE_5___default.a.error('Please Add Number', 'Attention!');
+      } else {
+        this.saveMsg();
       }
+    }
+  }, {
+    key: "saveMsg",
+    value: function saveMsg() {
+      var _this2 = this;
+
+      this.setState({
+        saveMsgLoading: true
+      });
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.post('/sms', {
+        mobile: this.state.mobile,
+        password: this.state.password,
+        msg: this.state.msg,
+        numbers: this.state.numbers
+      }).then(function (res) {
+        _this2.setState({
+          saveMsgLoading: false
+        });
+
+        if (res.data.success) {
+          toastr__WEBPACK_IMPORTED_MODULE_5___default.a.success("Message Sent", "Success");
+        } else {
+          toastr__WEBPACK_IMPORTED_MODULE_5___default.a.error(res.data.msg, "Could not Sent Message");
+        }
+      })["catch"](function (err) {
+        _this2.setState({
+          saveMsgLoading: false
+        });
+
+        console.log(err);
+      });
     }
   }, {
     key: "render",
@@ -68314,7 +68373,12 @@ function (_Component) {
         onClick: this.sendSms.bind(this),
         type: "button",
         "class": "btn btn-dark btn-sm"
-      }, "Send"))))));
+      }, this.state.saveMsgLoading ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        "class": "spinner-border spinner-border-sm",
+        role: "status"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        "class": "sr-only"
+      }, "Loading...")) : 'Send'))))));
     }
   }]);
 
@@ -68413,8 +68477,8 @@ function mainPageWidth() {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\learn\laraval\sms\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\learn\laraval\sms\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! E:\lara\sms\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! E:\lara\sms\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

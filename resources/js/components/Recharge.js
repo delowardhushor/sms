@@ -12,7 +12,9 @@ export default class Recharge extends Component {
 		super(props);
 		this.state={
             watchChange:false,
-            recharges:[],
+            recharges:{
+                data:[]
+            },
             rechargeLoading:false,
             tranCode: '',
 		};
@@ -22,32 +24,35 @@ export default class Recharge extends Component {
         if(this.props.userdata == null || this.props.userdata == ''){
             this.props.history.push('/signin');
         }else{
-            axios.post('/getrecharges', {
-                mobile:this.props.userdata.mobile,
-                password:this.props.userdata.password,
-            })
-            .then((res)=> {
-                console.log(res)
-                // if(res.data !== null){
-                //     this.setState({recharges:res.data});
-                // }
-            })
-            .catch((err)=> {
-                console.log(err);
-            })
+            this.loadRecharge();
         }
     }
 
+    loadRecharge(){
+        axios.post('/getrecharges', {
+            mobile:this.props.userdata.mobile,
+            password:this.props.userdata.password,
+        })
+        .then((res)=> {
+            if(res.data !== null){
+                this.setState({recharges:res.data});
+            }
+        })
+        .catch((err)=> {
+            console.log(err);
+        })
+    }
+
     componentWillReceiveProps(){
-        //console.log(this.props);
+
     }
 
     componentDidMount(){
         setInterval(() => {
 
-           var chkPending =  this.chkPending();
-
-           if(chkPending.exist){
+            var chkPending =  this.chkPending();
+            console.log(chkPending);
+            if(chkPending.exist){
                 axios.post('/checkpending', {
                     mobile:this.props.userdata.mobile,
                     password:this.props.userdata.password,
@@ -56,13 +61,14 @@ export default class Recharge extends Component {
                 .then((res)=> {
                     console.log(res)
                     if(res.data.success){
-                        this.state.recharges[chkPending.index].status = res.data.status;
-                        this.setState({watchChange:!this.state.watchChange});
-                        // if(res.data.status == 'completed'){
-                        //     toastr.success('Thanks for using Falgun SMS', "Recharge Verified");
-                        // }else{
-                        //     toastr.error('Please check your Transaction Code', "Recharge Suspended");
-                        // }
+                        this.loadRecharge();
+                        this.props.userdata.balance = res.data.balance;
+                        this.props.updateUser(this.props.userdata);
+                        if(res.data.status == 'completed'){
+                            toastr.success('Thanks for using Falgun SMS', "Recharge Verified");
+                        }else{
+                            toastr.error('Please check your Transaction Code', "Recharge Suspended");
+                        }
                     }
                 })
                 .catch((err)=> {
@@ -74,14 +80,14 @@ export default class Recharge extends Component {
     }
 
     chkPending(){
-        let {recharges} = this.state;
+        let {data} = this.state.recharges;
         var exist = false;
         var id = '';
         var index = '';
-        for(var i = 0; i < recharges.length; i++){
-            if(recharges[i].status == 'pending'){
+        for(var i = 0; i < data.length; i++){
+            if(data[i].status == 'pending'){
                 exist = true;
-                id = recharges[i].id;
+                id = data[i].id;
                 index = i;
                 break;
             }
@@ -106,9 +112,8 @@ export default class Recharge extends Component {
             code:this.state.tranCode
         })
         .then((res)=> {
-            
             if(res.data.success){
-                this.state.recharges.push(res.data.recharge);
+                this.loadRecharge();
                 toastr.success('Please wait for confirmation, Refresh after 2-3 minutes.', "Recharge Complete");
             }else{
                 toastr.error(res.data.msg);
@@ -124,7 +129,7 @@ export default class Recharge extends Component {
 
     render() {
 
-        const Recharges = this.state.recharges.map((data, index) => {
+        const Recharges = this.state.recharges.data.map((data, index) => {
             return (
                 <tr key={index}>
                     <td scope="row">{data.created_at}</td>

@@ -15,6 +15,10 @@ export default class Sms extends Component {
             numbers:'',
             msg:'',
             cost:0,
+            sms:{
+                data:[]
+            },
+            saveMsgLoading:false
         };
 	}
 
@@ -48,10 +52,14 @@ export default class Sms extends Component {
 
     chkValidNum(){
         var numbers = this.state.numbers;
+        var numbers = numbers.replace(' ', '');
         var numArray = numbers.split(',');
         var notvalid = false;
         for(var i = 0; i < numArray.length; i++){
             if(isNaN(numArray[i].replace('+',''))){
+                return true;
+                break;
+            }else if(numArray[i].length !== 0 && numArray[i].length !== 14 && numArray[i].length !== 11){
                 return true;
                 break;
             }
@@ -59,17 +67,53 @@ export default class Sms extends Component {
         return notvalid;
     }
 
+    deepChk(){
+        
+    }
+
     sendSms(){
-        if(this.chkValidNum()){
-            toastr.error('INvalid Number(s)', 'Attention!');
+        if(this.chkValidNum())
+        {
+            toastr.error('Invalid Number(s)', 'Attention!');
         }
-        else if(this.state.cost > this.props.userdata.balance){
+        else if(this.state.cost > this.props.userdata.balance)
+        {
             toastr.error('Not Enough Balance', 'Attention!');
-        }else if(!this.state.msg){
+        }
+        else if(!this.state.msg)
+        {
             toastr.error('Message Empty', 'Attention!');
-        }else if(!this.state.numbers){
+        }
+        else if(!this.state.numbers)
+        {
             toastr.error('Please Add Number', 'Attention!');
         }
+        else
+        {
+            this.saveMsg();
+        }
+    }
+
+    saveMsg(){
+        this.setState({saveMsgLoading:true});
+        axios.post('/sms', {
+            mobile:this.state.mobile,
+            password:this.state.password,
+            msg:this.state.msg,
+            numbers:this.state.numbers
+        })
+        .then((res)=> {
+            this.setState({saveMsgLoading:false});
+            if(res.data.success){
+                toastr.success("Message Sent", "Success");
+            }else{
+                toastr.error(res.data.msg, "Could not Sent Message");
+            }
+        })
+        .catch((err)=> {
+            this.setState({saveMsgLoading:false});
+            console.log(err);
+        })
     }
 
 
@@ -110,7 +154,15 @@ export default class Sms extends Component {
                         </div>
                         <div className="row">
                             <div className='col-12'>
-                                <button onClick={this.sendSms.bind(this)} type="button" class="btn btn-dark btn-sm">Send</button>
+                                <button onClick={this.sendSms.bind(this)} type="button" class="btn btn-dark btn-sm">
+                                    {this.state.saveMsgLoading ? 
+                                        <div class="spinner-border spinner-border-sm" role="status">
+                                            <span class="sr-only">Loading...</span>
+                                        </div> 
+                                            : 
+                                        'Send'
+                                    }
+                                </button>
                             </div>
                         </div>
                     </div>

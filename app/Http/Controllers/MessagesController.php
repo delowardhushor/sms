@@ -12,7 +12,7 @@ class MessagesController extends Controller
     public function intialdata(Request $request)
     {
         $Users = Users::where("mobile", "=", $request->input('mobile'))->first();
-        return ['success' => true, 'messages' => $Users->messages, 'recharges' => $Users->recharges];
+        return ['success' => true, 'userdata' => ['balance' => $Users->balance]];
     }
 
     /**

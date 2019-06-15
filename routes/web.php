@@ -31,5 +31,7 @@ Route::group(['middleware' => 'checkAuth'], function () {
     Route::post('/getrecharges', 'RechargesController@index');
     Route::post('/recharges', 'RechargesController@store');
     Route::post('/checkpending', 'RechargesController@checkpending');
+
+    Route::post('/sms', 'MessagesController@store');
 });
 

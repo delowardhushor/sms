@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import {HashRouter,Route} from 'react-router-dom';
 
-import {setItem, getItem} from './utilities/utilities';
+import {setItem, getItem, removeItem} from './utilities/utilities';
 
 import './css/style.css';
 
@@ -63,8 +63,9 @@ export default class App extends Component {
         }
     }
 
-    updateUser(data){
-        this.setState({userdata:data});
+    updateUser(userdata){
+        this.setState({userdata:userdata});
+        setItem('userdata', userdata);
     }
 
     intialdata(userdata){
@@ -75,10 +76,11 @@ export default class App extends Component {
         .then((res)=> {
             console.log(res);
             if(res.data.success){
-                var sitedata = {};
-                sitedata.messages = res.data.messages;
-                sitedata.recharges = res.data.recharges;
-                this.setState({sitedata:sitedata});
+                userdata.balance = res.data.userdata.balance;
+                this.setState({userdata:userdata});
+            }else{
+                removeItem('userdata');
+                toastr.error("Please Signin", "Session Expired");
             }
         })
         .catch((err)=> {

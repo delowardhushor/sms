@@ -17,16 +17,17 @@ class RechargesController extends Controller
     public function index(Request $request)
     {
         $Users = Users::where('mobile', '=', $request->input('mobile'))->first();
-        return Recharges::paginate(50);
+        return Recharges::orderBy('id', 'desc')->paginate(50);
     }
 
     public function checkpending(Request $request)
     {
         $recharges = Recharges::find($request->input('id'));
-        if($recharges->status == 'pending'){
+        $Users = Users::where('mobile', '=', $request->input('mobile'))->first();
+        if($recharges->users_id != $Users->id || $recharges->status == 'pending'){
             return ['success' => false];
         }else{
-            return ['success' => true, 'status' => $recharges->status];
+            return ['success' => true, 'status' => $recharges->status, 'balance' => $Users->balance];
         }
     }
 
