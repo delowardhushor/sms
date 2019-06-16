@@ -97,13 +97,14 @@ export default class Sms extends Component {
     saveMsg(){
         this.setState({saveMsgLoading:true});
         axios.post('/sms', {
-            mobile:this.state.mobile,
-            password:this.state.password,
+            mobile:this.props.userdata.mobile,
+            password:this.props.userdata.password,
             msg:this.state.msg,
             numbers:this.state.numbers
         })
         .then((res)=> {
             this.setState({saveMsgLoading:false});
+            console.log(res);
             if(res.data.success){
                 toastr.success("Message Sent", "Success");
             }else{

@@ -9,6 +9,11 @@ use App\Users;
 
 class MessagesController extends Controller
 {
+    private function validate_mobile($mobile)
+    {
+        return preg_match('/^[0-9]{11}+$/', $mobile);
+    }
+
     public function intialdata(Request $request)
     {
         $Users = Users::where("mobile", "=", $request->input('mobile'))->first();
@@ -43,7 +48,54 @@ class MessagesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $numbers = $request->input('numbers');
+        $numbers = str_replace('+', '', str_replace(' ', '', $numbers));
+        
+        if(substr($numbers, -1) == ','){
+            $numbers = substr_replace($numbers, "", -1);
+        }
+
+        $num_array = explode(',', $numbers);
+        $valid = true;
+        foreach ($num_array as $number){
+            if(strlen($number) < 11){
+                $valid = false;
+                break;
+            }else if(!$this->validate_mobile(substr($number, -11))){
+                $valid = false;
+                break;
+            }
+        }
+
+        if($valid){
+
+            $Users = Users::where("mobile", "=", $request->input('mobile'))->first();
+
+            $cost = count($num_array)*ceil(strlen($request->input('msg'))/140)*.4;
+
+            if($Users->balance < $cost)
+            {
+                return ['success' => false, 'msg' => 'Not Enough Balance'];
+            }
+            else
+            {
+                $Users->balance = $Users->balance - $cost;
+                $Users->save();
+                $Messages = new Messages;
+                $Messages->users_id = $Users->id;
+                $Messages->numbers = $request->input('numbers');
+                $Messages->msg = $request->input('msg');
+                if($Messages->save()){
+                    return ['success' => true];
+                }else{
+                    return ['success' => false];
+                }
+            }
+        }else{
+            return ['success' => false, 'msg' => "Invalid Number(s)"];
+        }
+
     }
 
     /**

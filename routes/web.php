@@ -34,4 +34,3 @@ Route::group(['middleware' => 'checkAuth'], function () {
 
     Route::post('/sms', 'MessagesController@store');
 });
-
