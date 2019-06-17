@@ -25,9 +25,10 @@ class MessagesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        
+        $Users = Users::where('mobile', '=', $request->input('mobile'))->first();
+        return Messages::where('users_id', '=', $Users->id)->orderBy('id', 'desc')->paginate(5);
     }
 
     /**
@@ -80,14 +81,13 @@ class MessagesController extends Controller
             }
             else
             {
-                $Users->balance = $Users->balance - $cost;
-                $Users->save();
+                $Users->balance = round($Users->balance - $cost, 2);
                 $Messages = new Messages;
                 $Messages->users_id = $Users->id;
                 $Messages->numbers = $request->input('numbers');
                 $Messages->msg = $request->input('msg');
-                if($Messages->save()){
-                    return ['success' => true];
+                if($Users->save() && $Messages->save()){
+                    return ['success' => true, 'balance' => $Users->balance, 'cost' => $cost];
                 }else{
                     return ['success' => false];
                 }

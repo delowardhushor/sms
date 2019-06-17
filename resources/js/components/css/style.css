@@ -224,6 +224,10 @@ body {
   margin-left: 10px;
 }
 
+.page-item{
+  cursor: pointer;
+}
+
 @media (min-width: 992px){
   .navbar-expand-lg {
       flex-flow: wrap;

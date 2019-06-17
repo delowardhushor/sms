@@ -106,6 +106,9 @@ export default class Sms extends Component {
             this.setState({saveMsgLoading:false});
             console.log(res);
             if(res.data.success){
+                var userdata = JSON.parse(JSON.stringify(this.props.userdata));
+                userdata.balance = res.data.balance;
+                this.props.updateUser(userdata);
                 toastr.success("Message Sent", "Success");
             }else{
                 toastr.error(res.data.msg, "Could not Sent Message");

@@ -17,7 +17,7 @@ class RechargesController extends Controller
     public function index(Request $request)
     {
         $Users = Users::where('mobile', '=', $request->input('mobile'))->first();
-        return Recharges::orderBy('id', 'desc')->paginate(50);
+        return Recharges::where('users_id', '=', $Users->id)->orderBy('id', 'desc')->paginate(50);
     }
 
     public function checkpending(Request $request)

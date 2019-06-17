@@ -10,6 +10,7 @@ import Dashboard from './Dashboard';
 import Signin from './Signin';
 import Signup from './Signup';
 import Sms from './Sms';
+import AllSms from './AllSms';
 import DocApi from './DocApi';
 import Recharge from './Recharge';
 
@@ -127,6 +128,11 @@ export default class App extends Component {
                         exact 
                         path="/sms" 
                         render={(props) => <Sms {...props} sitedata={sitedata} userdata={userdata} updateUser={this.updateUser} />} 
+                    />
+                    <Route
+                        exact 
+                        path="/allsms" 
+                        render={(props) => <AllSms {...props} sitedata={sitedata} userdata={userdata} updateUser={this.updateUser} />} 
                     />
                     <Route
                         exact 
