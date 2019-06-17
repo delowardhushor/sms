@@ -28,7 +28,7 @@ class MessagesController extends Controller
     public function index(Request $request)
     {
         $Users = Users::where('mobile', '=', $request->input('mobile'))->first();
-        return Messages::where('users_id', '=', $Users->id)->orderBy('id', 'desc')->paginate(5);
+        return Messages::where('users_id', '=', $Users->id)->orderBy('id', 'desc')->paginate(50);
     }
 
     /**

@@ -4,6 +4,8 @@ import toastr from "toastr";
 import Header from './Header';
 import Sidebar from './Sidebar';
 
+import Pagination from './modules/Pagination';
+
 import {getItem, removeItem, mainPageWidth} from './utilities/utilities';
 
 export default class Recharge extends Component {
@@ -17,19 +19,20 @@ export default class Recharge extends Component {
             },
             rechargeLoading:false,
             tranCode: '',
-		};
+        };
+        this.loadPage = this.loadPage.bind(this)
 	}
 
     componentWillMount(){
         if(this.props.userdata == null || this.props.userdata == ''){
             this.props.history.push('/signin');
         }else{
-            this.loadRecharge();
+            this.loadPage();
         }
     }
 
-    loadRecharge(){
-        axios.post('/getrecharges', {
+    loadPage(url = '/getrecharges'){
+        axios.post(url, {
             mobile:this.props.userdata.mobile,
             password:this.props.userdata.password,
         })
@@ -61,7 +64,7 @@ export default class Recharge extends Component {
                 .then((res)=> {
                     console.log(res)
                     if(res.data.success){
-                        this.loadRecharge();
+                        this.loadPage();
                         this.props.userdata.balance = res.data.balance;
                         this.props.updateUser(this.props.userdata);
                         if(res.data.status == 'completed'){
@@ -113,7 +116,7 @@ export default class Recharge extends Component {
         })
         .then((res)=> {
             if(res.data.success){
-                this.loadRecharge();
+                this.loadPage();
                 toastr.success('Please wait for confirmation, Refresh after 2-3 minutes.', "Recharge Complete");
             }else{
                 toastr.error(res.data.msg);
@@ -129,7 +132,9 @@ export default class Recharge extends Component {
 
     render() {
 
-        const Recharges = this.state.recharges.data.map((data, index) => {
+        let {recharges} = this.state;
+
+        const RechargeList = recharges.data.map((data, index) => {
             return (
                 <tr key={index}>
                     <td scope="row">{data.created_at}</td>
@@ -201,12 +206,13 @@ export default class Recharge extends Component {
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {Recharges}
+                                            {RechargeList}
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
                         </div>
+                        <Pagination data={recharges} loadPage={this.loadPage} />
                     </div>
                 </div>
             </div>

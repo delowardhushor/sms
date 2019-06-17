@@ -4,6 +4,8 @@ import toastr from "toastr";
 import Header from './Header';
 import Sidebar from './Sidebar';
 
+import Pagination from './modules/Pagination';
+
 import {getItem, removeItem, mainPageWidth, baseUrl} from './utilities/utilities';
 
 export default class AllSms extends Component {
@@ -17,18 +19,19 @@ export default class AllSms extends Component {
             },
             rechargeLoading:false,
             tranCode: '',
-		};
+        };
+        this.loadPage = this.loadPage.bind(this);
 	}
 
     componentWillMount(){
         if(this.props.userdata == null || this.props.userdata == ''){
             this.props.history.push('/signin');
         }else{
-            this.loadSms();
+            this.loadPage();
         }
     }
 
-    loadSms(url = "/allsms"){
+    loadPage(url = "/allsms"){
         console.log(url)
         axios.post(url, {
             mobile:this.props.userdata.mobile,
@@ -71,11 +74,7 @@ export default class AllSms extends Component {
             );
         });
 
-        const Pagination = [];
-
-        for (var i = 1; i < AllSms.last_page+1; i++) {
-            Pagination.push(<li onClick={() => this.loadSms(baseUrl()+'/allsms?page='+i)} className={AllSms.current_page == i ? "page-item active" : "page-item"}><span className="page-link">{i}</span></li>)
-        }
+        
 
         return (
             <div>
@@ -107,21 +106,7 @@ export default class AllSms extends Component {
                                 </div>
                             </div>
                         </div>
-                        <div className="row">
-                            <div className="col-12 d-flex justify-content-center">
-                                <nav aria-label="...">
-                                    <ul className="pagination">
-                                        <li className={AllSms.prev_page_url ? "page-item" : "page-item disabled"} onClick={() => AllSms.prev_page_url ? this.loadSms(AllSms.prev_page_url) : null}>
-                                            <span className="page-link" tabindex="-1">Previous</span>
-                                        </li>
-                                        {Pagination}
-                                        <li className={AllSms.next_page_url ? "page-item" : "page-item disabled"} onClick={() => AllSms.next_page_url ? this.loadSms(AllSms.next_page_url) : null}>
-                                        <span className="page-link">Next</span>
-                                        </li>
-                                    </ul>
-                                </nav>
-                            </div>
-                        </div>
+                        <Pagination data={AllSms} loadPage={this.loadPage} />
                     </div>
                 </div>
             </div>
