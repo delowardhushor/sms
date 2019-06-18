@@ -54,7 +54,6 @@ export default class Recharge extends Component {
         setInterval(() => {
 
             var chkPending =  this.chkPending();
-            console.log(chkPending);
             if(chkPending.exist){
                 axios.post('/checkpending', {
                     mobile:this.props.userdata.mobile,
@@ -62,7 +61,6 @@ export default class Recharge extends Component {
                     id:chkPending.id
                 })
                 .then((res)=> {
-                    console.log(res)
                     if(res.data.success){
                         this.loadPage();
                         this.props.userdata.balance = res.data.balance;

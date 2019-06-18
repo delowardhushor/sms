@@ -32,7 +32,6 @@ export default class AllSms extends Component {
     }
 
     loadPage(url = "/allsms"){
-        console.log(url)
         axios.post(url, {
             mobile:this.props.userdata.mobile,
             password:this.props.userdata.password,

@@ -41,6 +41,33 @@ class MessagesController extends Controller
         //
     }
 
+    public function chk_Validation($numbers)
+    {
+        $numbers = str_replace('+', '', str_replace(' ', '', $numbers));
+        
+        if(substr($numbers, -1) == ','){
+            $numbers = substr_replace($numbers, "", -1);
+        }
+
+        $num_array = explode(',', $numbers);
+
+        $filtered_number = [];
+        $valid = true;
+        foreach ($num_array as $number){
+            if(strlen($number) !== 11 && strlen($number) !== 13){
+                $valid = false;
+                break;
+            }else if(!$this->validate_mobile(substr($number, -11))){
+                $valid = false;
+                break;
+            }else{
+                array_push($filtered_number, substr($number, -11));
+            }
+        }
+
+        return ['valid' => $valid, 'numbers' => implode(",",$filtered_number)];
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -50,30 +77,13 @@ class MessagesController extends Controller
     public function store(Request $request)
     {
 
-        $numbers = $request->input('numbers');
-        $numbers = str_replace('+', '', str_replace(' ', '', $numbers));
-        
-        if(substr($numbers, -1) == ','){
-            $numbers = substr_replace($numbers, "", -1);
-        }
+        $validate_numbers = $this->chk_Validation($request->input('numbers'));
 
-        $num_array = explode(',', $numbers);
-        $valid = true;
-        foreach ($num_array as $number){
-            if(strlen($number) < 11){
-                $valid = false;
-                break;
-            }else if(!$this->validate_mobile(substr($number, -11))){
-                $valid = false;
-                break;
-            }
-        }
-
-        if($valid){
+        if($validate_numbers['valid']){
 
             $Users = Users::where("mobile", "=", $request->input('mobile'))->first();
 
-            $cost = count($num_array)*ceil(strlen($request->input('msg'))/140)*.4;
+            $cost = count(explode(',', $validate_numbers['numbers']))*ceil(strlen($request->input('msg'))/140)*.4;
 
             if($Users->balance < $cost)
             {
@@ -84,7 +94,7 @@ class MessagesController extends Controller
                 $Users->balance = round($Users->balance - $cost, 2);
                 $Messages = new Messages;
                 $Messages->users_id = $Users->id;
-                $Messages->numbers = $request->input('numbers');
+                $Messages->numbers = $validate_numbers['numbers'];
                 $Messages->msg = $request->input('msg');
                 if($Users->save() && $Messages->save()){
                     return ['success' => true, 'balance' => $Users->balance, 'cost' => $cost];

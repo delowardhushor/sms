@@ -6520,7 +6520,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "body {\r\n    background-color: #fff;\r\n    font-family: 'Poppins';\r\n}\r\n\r\n:root {\r\n    --input-padding-x: 1.5rem;\r\n    --input-padding-y: .75rem;\r\n  }\r\n\r\n  .card-signin {\r\n    border: 0;\r\n    border-radius: 1rem;\r\n    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.5);\r\n  }\r\n  \r\n  .card-signin .card-title {\r\n    margin-bottom: 2rem;\r\n    font-weight: 300;\r\n    font-size: 1.5rem;\r\n  }\r\n  \r\n  .card-signin .card-body {\r\n    padding: 2rem;\r\n  }\r\n  \r\n  .form-signin {\r\n    width: 100%;\r\n  }\r\n  \r\n  .form-signin .btn {\r\n    font-size: 80%;\r\n    border-radius: 5rem;\r\n    letter-spacing: .1rem;\r\n    font-weight: bold;\r\n    padding: 1rem;\r\n    transition: all 0.2s;\r\n  }\r\n  \r\n  .form-label-group {\r\n    position: relative;\r\n    margin-bottom: 1rem;\r\n  }\r\n  \r\n  .form-label-group input {\r\n    height: auto;\r\n    border-radius: 2rem;\r\n  }\r\n  \r\n  .form-label-group>input,\r\n  .form-label-group>label {\r\n    padding: var(--input-padding-y) var(--input-padding-x);\r\n  }\r\n  \r\n  .form-label-group>label {\r\n    position: absolute;\r\n    top: 0;\r\n    left: 0;\r\n    display: block;\r\n    width: 100%;\r\n    margin-bottom: 0;\r\n    /* Override default `<label>` margin */\r\n    line-height: 1.5;\r\n    color: #495057;\r\n    border: 1px solid transparent;\r\n    border-radius: .25rem;\r\n    transition: all .1s ease-in-out;\r\n  }\r\n  \r\n  .form-label-group input::-webkit-input-placeholder {\r\n    color: transparent;\r\n  }\r\n  \r\n  .form-label-group input:-ms-input-placeholder {\r\n    color: transparent;\r\n  }\r\n  \r\n  .form-label-group input::-ms-input-placeholder {\r\n    color: transparent;\r\n  }\r\n  \r\n  .form-label-group input::-moz-placeholder {\r\n    color: transparent;\r\n  }\r\n  \r\n  .form-label-group input::placeholder {\r\n    color: transparent;\r\n  }\r\n  \r\n  .form-label-group input:not(:placeholder-shown) {\r\n    padding-top: calc(var(--input-padding-y) + var(--input-padding-y) * (2 / 3));\r\n    padding-bottom: calc(var(--input-padding-y) / 3);\r\n  }\r\n  \r\n  .form-label-group input:not(:placeholder-shown)~label {\r\n    padding-top: calc(var(--input-padding-y) / 3);\r\n    padding-bottom: calc(var(--input-padding-y) / 3);\r\n    font-size: 12px;\r\n    color: #777;\r\n  }\r\n  \r\n  .btn-google {\r\n    color: white;\r\n    background-color: #ea4335;\r\n  }\r\n  \r\n  .btn-facebook {\r\n    color: white;\r\n    background-color: #3b5998;\r\n  }\r\n  \r\n.header{\r\n  background-color: transparent;\r\n}\r\n\r\n.completed{\r\n  color: #38c172 !important;\r\n}\r\n\r\n.suspended{\r\n  color: #e3342f !important;\r\n}\r\n\r\n/* my css start */\r\n\r\n.f-c-sb{\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: space-between;\r\n}\r\n\r\n.f-c-sa{\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: space-around;\r\n}\r\n\r\n.fal-header{\r\n  display:flex;\r\n  height: 80px;\r\n  padding:0px 15px;\r\n  justify-content:space-between;\r\n  align-items:center;\r\n  box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);\r\n}\r\n\r\n.header-right{\r\n  display: flex;\r\n  flex-direction: row;\r\n  align-items: center;\r\n}\r\n\r\n.shadow{\r\n  box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);\r\n}\r\n\r\n.user-btn{\r\n  height:40px;\r\n  width:40px;\r\n  cursor: pointer;\r\n  font-size: 24px;\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: center;\r\n  position: relative;\r\n}\r\n\r\n.account-btn-wrapper{\r\n  position: absolute;\r\n  z-index: 999;\r\n  right: 0px;\r\n  top: 40px;\r\n  width: 150px;\r\n  padding: 15px;\r\n  font-size: 14px;\r\n  flex-direction: column;\r\n  border-radius: 10px;\r\n  text-align: center;\r\n  display: flex;\r\n  background-color: #fff;\r\n  box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.3);\r\n}\r\n\r\n.account-btn-wrapper a{\r\n  padding: 10px 0px;\r\n  border-bottom: .5px solid #ddd;\r\n  text-decoration: none;\r\n  color: #000;\r\n}\r\n\r\n.account-btn-wrapper a:last-child{\r\n  border-bottom: 0px;\r\n}\r\n\r\n.main-wrapper{\r\n  display: flex;\r\n  justify-content: flex-start;\r\n}\r\n\r\n.main-page{\r\n  padding: 15px;\r\n}\r\n\r\n.sidebar{\r\n  width:200px;\r\n}\r\n\r\n.list-group-item:first-child {\r\n  border-top-left-radius: 0px;\r\n  border-top-right-radius: 0px;\r\n}\r\n\r\n.closable-tag {\r\n  padding: 5px 10px;\r\n  border-radius: 20px;\r\n  background: #000;\r\n  color: #fff;\r\n  margin: 0px 10px;\r\n  font-size: 12px;\r\n  cursor: pointer;\r\n}\r\n\r\n.closable-tag i{\r\n  margin-left: 10px;\r\n}\r\n\r\n.page-item{\r\n  cursor: pointer;\r\n}\r\n\r\n@media (min-width: 992px){\r\n  .navbar-expand-lg {\r\n      flex-flow: wrap;\r\n      justify-content: space-between;\r\n  }\r\n}", ""]);
+exports.push([module.i, "body {\r\n    background-color: #fff;\r\n    font-family: 'Poppins';\r\n}\r\n\r\n:root {\r\n    --input-padding-x: 1.5rem;\r\n    --input-padding-y: .75rem;\r\n  }\r\n\r\n  .card-signin {\r\n    border: 0;\r\n    border-radius: 1rem;\r\n    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.5);\r\n  }\r\n  \r\n  .card-signin .card-title {\r\n    margin-bottom: 2rem;\r\n    font-weight: 300;\r\n    font-size: 1.5rem;\r\n  }\r\n  \r\n  .card-signin .card-body {\r\n    padding: 2rem;\r\n  }\r\n  \r\n  .form-signin {\r\n    width: 100%;\r\n  }\r\n  \r\n  .form-signin .btn {\r\n    font-size: 80%;\r\n    border-radius: 5rem;\r\n    letter-spacing: .1rem;\r\n    font-weight: bold;\r\n    padding: 1rem;\r\n    transition: all 0.2s;\r\n  }\r\n  \r\n  .form-label-group {\r\n    position: relative;\r\n    margin-bottom: 1rem;\r\n  }\r\n  \r\n  .form-label-group input {\r\n    height: auto;\r\n    border-radius: 2rem;\r\n  }\r\n  \r\n  .form-label-group>input,\r\n  .form-label-group>label {\r\n    padding: var(--input-padding-y) var(--input-padding-x);\r\n  }\r\n  \r\n  .form-label-group>label {\r\n    position: absolute;\r\n    top: 0;\r\n    left: 0;\r\n    display: block;\r\n    width: 100%;\r\n    margin-bottom: 0;\r\n    /* Override default `<label>` margin */\r\n    line-height: 1.5;\r\n    color: #495057;\r\n    border: 1px solid transparent;\r\n    border-radius: .25rem;\r\n    transition: all .1s ease-in-out;\r\n  }\r\n  \r\n  .form-label-group input::-webkit-input-placeholder {\r\n    color: transparent;\r\n  }\r\n  \r\n  .form-label-group input:-ms-input-placeholder {\r\n    color: transparent;\r\n  }\r\n  \r\n  .form-label-group input::-ms-input-placeholder {\r\n    color: transparent;\r\n  }\r\n  \r\n  .form-label-group input::-moz-placeholder {\r\n    color: transparent;\r\n  }\r\n  \r\n  .form-label-group input::placeholder {\r\n    color: transparent;\r\n  }\r\n  \r\n  .form-label-group input:not(:placeholder-shown) {\r\n    padding-top: calc(var(--input-padding-y) + var(--input-padding-y) * (2 / 3));\r\n    padding-bottom: calc(var(--input-padding-y) / 3);\r\n  }\r\n  \r\n  .form-label-group input:not(:placeholder-shown)~label {\r\n    padding-top: calc(var(--input-padding-y) / 3);\r\n    padding-bottom: calc(var(--input-padding-y) / 3);\r\n    font-size: 12px;\r\n    color: #777;\r\n  }\r\n  \r\n  .btn-google {\r\n    color: white;\r\n    background-color: #ea4335;\r\n  }\r\n  \r\n  .btn-facebook {\r\n    color: white;\r\n    background-color: #3b5998;\r\n  }\r\n  \r\n.header{\r\n  background-color: transparent;\r\n}\r\n\r\n.completed{\r\n  color: #38c172 !important;\r\n}\r\n\r\n.suspended{\r\n  color: #e3342f !important;\r\n}\r\n\r\n/* my css start */\r\n\r\n.f-c-sb{\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: space-between;\r\n}\r\n\r\n.f-c-sa{\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: space-around;\r\n}\r\n\r\n.fal-header{\r\n  display:flex;\r\n  height: 80px;\r\n  padding:0px 15px;\r\n  justify-content:space-between;\r\n  align-items:center;\r\n  box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);\r\n}\r\n\r\n.header-right{\r\n  display: flex;\r\n  flex-direction: row;\r\n  align-items: center;\r\n}\r\n\r\n.shadow{\r\n  box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);\r\n}\r\n\r\n.user-btn{\r\n  height:40px;\r\n  width:40px;\r\n  cursor: pointer;\r\n  font-size: 24px;\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: center;\r\n  position: relative;\r\n}\r\n\r\n.account-btn-wrapper{\r\n  position: absolute;\r\n  z-index: 999;\r\n  right: 0px;\r\n  top: 40px;\r\n  width: 150px;\r\n  padding: 15px;\r\n  font-size: 14px;\r\n  flex-direction: column;\r\n  border-radius: 10px;\r\n  text-align: center;\r\n  display: flex;\r\n  background-color: #fff;\r\n  box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.3);\r\n}\r\n\r\n.account-btn-wrapper a{\r\n  padding: 10px 0px;\r\n  border-bottom: .5px solid #ddd;\r\n  text-decoration: none;\r\n  color: #000;\r\n}\r\n\r\n.account-btn-wrapper a:last-child{\r\n  border-bottom: 0px;\r\n}\r\n\r\n.main-wrapper{\r\n  display: flex;\r\n  justify-content: flex-start;\r\n}\r\n\r\n.main-page{\r\n  padding: 15px;\r\n  min-height: 1000px;\r\n}\r\n\r\n.sidebar{\r\n  width:200px;\r\n}\r\n\r\n.list-group-item:first-child {\r\n  border-top-left-radius: 0px;\r\n  border-top-right-radius: 0px;\r\n}\r\n\r\n.closable-tag {\r\n  padding: 5px 10px;\r\n  border-radius: 20px;\r\n  background: #000;\r\n  color: #fff;\r\n  margin: 0px 10px;\r\n  font-size: 12px;\r\n  cursor: pointer;\r\n}\r\n\r\n.closable-tag i{\r\n  margin-left: 10px;\r\n}\r\n\r\n.page-item{\r\n  cursor: pointer;\r\n}\r\n\r\n@media (min-width: 992px){\r\n  .navbar-expand-lg {\r\n      flex-flow: wrap;\r\n      justify-content: space-between;\r\n  }\r\n}", ""]);
 
 // exports
 
@@ -66874,7 +66874,6 @@ function (_Component) {
       var _this2 = this;
 
       var url = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "/allsms";
-      console.log(url);
       axios__WEBPACK_IMPORTED_MODULE_1___default.a.post(url, {
         mobile: this.props.userdata.mobile,
         password: this.props.userdata.password
@@ -67078,12 +67077,10 @@ function (_Component) {
     }
   }, {
     key: "componentDidMount",
-    value: function componentDidMount() {
-      var mainPage = document.getElementById('main-page');
-
-      if (mainPage != null) {
-        mainPage.style.width = window.innerWidth - 200 + 'px';
-      }
+    value: function componentDidMount() {// var mainPage = document.getElementById('main-page');
+      // if(mainPage != null){
+      //     mainPage.style.width = (window.innerWidth-200)+'px';
+      // }
     }
   }, {
     key: "updateUser",
@@ -67657,16 +67654,12 @@ function (_Component) {
       setInterval(function () {
         var chkPending = _this3.chkPending();
 
-        console.log(chkPending);
-
         if (chkPending.exist) {
           axios__WEBPACK_IMPORTED_MODULE_1___default.a.post('/checkpending', {
             mobile: _this3.props.userdata.mobile,
             password: _this3.props.userdata.password,
             id: chkPending.id
           }).then(function (res) {
-            console.log(res);
-
             if (res.data.success) {
               _this3.loadPage();
 
@@ -68441,7 +68434,7 @@ function (_Component) {
     key: "chkValidNum",
     value: function chkValidNum() {
       var numbers = this.state.numbers;
-      var numbers = numbers.replace(' ', '');
+      var numbers = numbers.replace(/\s/g, '');
       var numArray = numbers.split(',');
       var notvalid = false;
 

@@ -58,10 +58,10 @@ export default class App extends Component {
     }
 
     componentDidMount(){
-        var mainPage = document.getElementById('main-page')
-        if(mainPage != null){
-            mainPage.style.width = (window.innerWidth-200)+'px';
-        }
+        // var mainPage = document.getElementById('main-page');
+        // if(mainPage != null){
+        //     mainPage.style.width = (window.innerWidth-200)+'px';
+        // }
     }
 
     updateUser(userdata){

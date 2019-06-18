@@ -17,14 +17,13 @@ class CheckAuth
      */
     public function handle(Request $request, Closure $next)
     {
-        // $user = Users::where("mobile", "=", $request->input('mobile'))->first();
+        $user = Users::where("mobile", "=", $request->input('mobile'))->first();
 
-        // if($user !== '' && Hash::check($request->input('password'), $user->password) === true)
-        // {
-        //     return $next($request);
-        // }else{
-        //     return null;
-        // }
-        return $next($request);
+        if($user !== null && Hash::check($request->input('password'), $user->password) === true)
+        {
+            return $next($request);
+        }else{
+            return redirect('/404');
+        }
     }
 }

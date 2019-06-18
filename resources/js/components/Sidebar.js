@@ -10,7 +10,7 @@ export default class Sidebar extends Component {
         let {pathname} = this.props.history.location;
         return (
             <div className="sidebar shadow">
-                <div class="list-group">
+                <div class="list-group" >
                     <Link to="/dashboard" className={pathname == '/dashboard' ? 'list-group-item list-group-item-action active' : 'list-group-item list-group-item-action'} >
                         Dashboard
                     </Link>

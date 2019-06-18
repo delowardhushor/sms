@@ -52,7 +52,7 @@ export default class Sms extends Component {
 
     chkValidNum(){
         var numbers = this.state.numbers;
-        var numbers = numbers.replace(' ', '');
+        var numbers = numbers.replace(/\s/g,'');
         var numArray = numbers.split(',');
         var notvalid = false;
         for(var i = 0; i < numArray.length; i++){

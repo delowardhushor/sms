@@ -35,3 +35,7 @@ Route::group(['middleware' => 'checkAuth'], function () {
     Route::post('/allsms', 'MessagesController@index');
     Route::post('/sms', 'MessagesController@store');
 });
+
+Route::get('/404', function(){
+    return ['success' => false, 'msg' => 'Invalid Request'];
+});
