@@ -96,7 +96,7 @@ export default class Sms extends Component {
 
     saveMsg(){
         this.setState({saveMsgLoading:true});
-        axios.post('/sms', {
+        axios.post('/api/sms', {
             mobile:this.props.userdata.mobile,
             password:this.props.userdata.password,
             msg:this.state.msg,
@@ -116,7 +116,7 @@ export default class Sms extends Component {
         })
         .catch((err)=> {
             this.setState({saveMsgLoading:false});
-            console.log(err);
+            console.log("sdsd", err);
         })
     }
 

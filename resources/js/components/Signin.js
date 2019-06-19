@@ -17,6 +17,7 @@ export default class Signin extends Component {
 	}
 
     componentWillMount(){
+        console.log(this.props);
         if(this.props.userdata != null && this.props.userdata != ''){
             this.props.history.push('/dashboard');
         }

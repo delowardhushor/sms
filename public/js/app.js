@@ -67994,6 +67994,8 @@ function (_Component) {
   _createClass(Signin, [{
     key: "componentWillMount",
     value: function componentWillMount() {
+      console.log(this.props);
+
       if (this.props.userdata != null && this.props.userdata != '') {
         this.props.history.push('/dashboard');
       }
@@ -68476,7 +68478,7 @@ function (_Component) {
       this.setState({
         saveMsgLoading: true
       });
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a.post('/sms', {
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.post('/api/sms', {
         mobile: this.props.userdata.mobile,
         password: this.props.userdata.password,
         msg: this.state.msg,
@@ -68503,7 +68505,7 @@ function (_Component) {
           saveMsgLoading: false
         });
 
-        console.log(err);
+        console.log("sdsd", err);
       });
     }
   }, {
