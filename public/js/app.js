@@ -66987,8 +66987,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _AllSms__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./AllSms */ "./resources/js/components/AllSms.js");
 /* harmony import */ var _DocApi__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./DocApi */ "./resources/js/components/DocApi.js");
 /* harmony import */ var _Recharge__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./Recharge */ "./resources/js/components/Recharge.js");
-/* harmony import */ var toastr__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! toastr */ "./node_modules/toastr/toastr.js");
-/* harmony import */ var toastr__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(toastr__WEBPACK_IMPORTED_MODULE_12__);
+/* harmony import */ var _ForgetPassword__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./ForgetPassword */ "./resources/js/components/ForgetPassword.js");
+/* harmony import */ var toastr__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! toastr */ "./node_modules/toastr/toastr.js");
+/* harmony import */ var toastr__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(toastr__WEBPACK_IMPORTED_MODULE_13__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
@@ -67022,7 +67023,8 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
-toastr__WEBPACK_IMPORTED_MODULE_12___default.a.options = {
+
+toastr__WEBPACK_IMPORTED_MODULE_13___default.a.options = {
   "closeButton": false,
   "debug": false,
   "newestOnTop": false,
@@ -67109,10 +67111,10 @@ function (_Component) {
           });
         } else {
           Object(_utilities_utilities__WEBPACK_IMPORTED_MODULE_3__["removeItem"])('userdata');
-          toastr__WEBPACK_IMPORTED_MODULE_12___default.a.error("Please Signin", "Session Expired");
+          toastr__WEBPACK_IMPORTED_MODULE_13___default.a.error("Please Signin", "Session Expired");
         }
       })["catch"](function (err) {
-        toastr__WEBPACK_IMPORTED_MODULE_12___default.a.error(err);
+        toastr__WEBPACK_IMPORTED_MODULE_13___default.a.error(err);
       });
     }
   }, {
@@ -67155,6 +67157,15 @@ function (_Component) {
         path: "/signin",
         render: function render(props) {
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Signin__WEBPACK_IMPORTED_MODULE_6__["default"], _extends({}, props, {
+            userdata: userdata,
+            updateUser: _this3.updateUser
+          }));
+        }
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+        exact: true,
+        path: "/forgetpassword",
+        render: function render(props) {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ForgetPassword__WEBPACK_IMPORTED_MODULE_12__["default"], _extends({}, props, {
             userdata: userdata,
             updateUser: _this3.updateUser
           }));
@@ -67434,6 +67445,196 @@ function (_Component) {
 
 /***/ }),
 
+/***/ "./resources/js/components/ForgetPassword.js":
+/*!***************************************************!*\
+  !*** ./resources/js/components/ForgetPassword.js ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return ForgetPassword; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _utilities_utilities__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./utilities/utilities */ "./resources/js/components/utilities/utilities.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var toastr__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! toastr */ "./node_modules/toastr/toastr.js");
+/* harmony import */ var toastr__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(toastr__WEBPACK_IMPORTED_MODULE_3__);
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+
+
+var ForgetPassword =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(ForgetPassword, _Component);
+
+  function ForgetPassword(props) {
+    var _this;
+
+    _classCallCheck(this, ForgetPassword);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(ForgetPassword).call(this, props));
+    _this.state = {
+      pinSending: false,
+      mobile: '',
+      recoverPass: false,
+      pin: '',
+      newPass: '',
+      conPass: ''
+    };
+    return _this;
+  }
+
+  _createClass(ForgetPassword, [{
+    key: "componentWillMount",
+    value: function componentWillMount() {
+      console.log(this.props);
+
+      if (this.props.userdata != null && this.props.userdata != '') {
+        this.props.history.push('/dashboard');
+      }
+    }
+  }, {
+    key: "login",
+    value: function login() {
+      var _this2 = this;
+
+      this.setState({
+        loginLoading: true
+      });
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a.post('/signin', {
+        mobile: this.state.mobile,
+        password: this.state.password
+      }).then(function (res) {
+        _this2.setState({
+          loginLoading: false
+        });
+
+        if (res.data.success) {
+          var userdata = res.data.userdata;
+          userdata.password = _this2.state.password;
+
+          _this2.props.updateUser(userdata);
+
+          Object(_utilities_utilities__WEBPACK_IMPORTED_MODULE_1__["setItem"])('userdata', userdata);
+          toastr__WEBPACK_IMPORTED_MODULE_3___default.a.success('Welcome To Falgun SMS Service', 'Hi ' + userdata.name + '!');
+
+          _this2.props.history.push('/dashboard');
+        } else {
+          toastr__WEBPACK_IMPORTED_MODULE_3___default.a.error(res.data.msg);
+        }
+      })["catch"](function (err) {
+        _this2.setState({
+          loginLoading: false
+        });
+
+        console.log(err);
+      });
+    }
+  }, {
+    key: "cngText",
+    value: function cngText(e) {
+      var name = e.target.name;
+      var value = e.target.value;
+
+      if (name == 'mobile') {
+        this.setState({
+          mobile: value
+        });
+      } else if (name == 'password') {
+        this.setState({
+          password: value
+        });
+      }
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this3 = this;
+
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "row"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-sm-9 col-md-7 col-lg-5 mx-auto"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "card card-signin my-5"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "card-body"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
+        className: "card-title text-center"
+      }, "Recover Password"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        className: "form-signin"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-label-group"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        onKeyUp: function onKeyUp(e) {
+          e.keyCode == 13 ? _this3.login() : null;
+        },
+        name: "mobile",
+        value: this.state.mobile,
+        onChange: this.cngText.bind(this),
+        id: "inputEmail",
+        className: "form-control",
+        placeholder: "Mobile Number",
+        required: true,
+        autoFocus: true
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "inputEmail"
+      }, "Mobile Number")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: this.login.bind(this),
+        className: "btn btn-lg btn-primary btn-block text-uppercase",
+        type: "button"
+      }, this.state.pinSending ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        "class": "spinner-border spinner-border-sm",
+        role: "status"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        "class": "sr-only"
+      }, "Loading...")) : 'Recover'), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", {
+        className: "my-4"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: function onClick() {
+          return _this3.props.history.push('/signin');
+        },
+        className: "btn btn-lg btn-facebook btn-block text-uppercase",
+        type: "button"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        "class": "fas fa-user-plus mr-2"
+      }), " Sign In")))))));
+    }
+  }]);
+
+  return ForgetPassword;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+
+
+/***/ }),
+
 /***/ "./resources/js/components/Header.js":
 /*!*******************************************!*\
   !*** ./resources/js/components/Header.js ***!
@@ -67498,7 +67699,7 @@ function (_Component) {
     value: function logout(e) {
       e.preventDefault();
       toastr__WEBPACK_IMPORTED_MODULE_3___default.a.success('Thanks for using Falgun SMS service', 'Signed Out!');
-      this.props.updateUser(null);
+      this.props.updateUser('');
       Object(_utilities_utilities__WEBPACK_IMPORTED_MODULE_2__["removeItem"])('userdata');
       this.props.history.push('/signin');
     }
@@ -68076,6 +68277,9 @@ function (_Component) {
         className: "form-label-group"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
+        onKeyUp: function onKeyUp(e) {
+          e.keyCode == 13 ? _this3.login() : null;
+        },
         name: "mobile",
         value: this.state.mobile,
         onChange: this.cngText.bind(this),
@@ -68090,6 +68294,9 @@ function (_Component) {
         className: "form-label-group"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "password",
+        onKeyUp: function onKeyUp(e) {
+          e.keyCode == 13 ? _this3.login() : null;
+        },
         name: "password",
         value: this.state.password,
         onChange: this.cngText.bind(this),
@@ -68117,7 +68324,7 @@ function (_Component) {
         className: "btn btn-lg btn-google btn-block text-uppercase",
         type: "button"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fab fa-google mr-2"
+        "class": "fas fa-fingerprint mr-2"
       }), " Forget Password"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: function onClick() {
           return _this3.props.history.push('/signup');
@@ -68125,7 +68332,7 @@ function (_Component) {
         className: "btn btn-lg btn-facebook btn-block text-uppercase",
         type: "button"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fab fa-facebook-f mr-2"
+        "class": "fas fa-user-plus mr-2"
       }), " No Account? Sign Up")))))));
     }
   }]);
@@ -68152,6 +68359,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _utilities_utilities__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./utilities/utilities */ "./resources/js/components/utilities/utilities.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var toastr__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! toastr */ "./node_modules/toastr/toastr.js");
+/* harmony import */ var toastr__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(toastr__WEBPACK_IMPORTED_MODULE_3__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -68174,6 +68383,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+
 var Signin =
 /*#__PURE__*/
 function (_Component) {
@@ -68186,9 +68396,13 @@ function (_Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Signin).call(this, props));
     _this.state = {
+      signupLoading: false,
+      confirmLoading: false,
       name: '',
       mobile: '',
-      password: ''
+      password: '',
+      confirming: false,
+      pin: ''
     };
     return _this;
   }
@@ -68205,14 +68419,35 @@ function (_Component) {
   }, {
     key: "signup",
     value: function signup() {
+      var _this2 = this;
+
+      this.setState({
+        signupLoading: true
+      });
       axios__WEBPACK_IMPORTED_MODULE_2___default.a.post('/signup', {
         name: this.state.name,
         mobile: this.state.mobile,
         password: this.state.password
       }).then(function (res) {
-        console.log(res);
+        if (res.data.success) {
+          toastr__WEBPACK_IMPORTED_MODULE_3___default.a.success('Please confirm the pin sent to your mobile', 'Confirmation!');
+
+          _this2.setState({
+            confirming: true
+          });
+        } else {
+          toastr__WEBPACK_IMPORTED_MODULE_3___default.a.error(res.data.msg);
+        }
+
+        _this2.setState({
+          signupLoading: false
+        });
       })["catch"](function (err) {
         console.log(err);
+
+        _this2.setState({
+          signupLoading: false
+        });
       });
     }
   }, {
@@ -68233,12 +68468,47 @@ function (_Component) {
         this.setState({
           name: value
         });
+      } else if (name == 'pin') {
+        this.setState({
+          pin: value
+        });
       }
+    }
+  }, {
+    key: "confirmPin",
+    value: function confirmPin() {
+      var _this3 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a.post('/verify', {
+        pin: this.state.pin,
+        mobile: this.state.mobile,
+        password: this.state.password
+      }).then(function (res) {
+        if (res.data.success) {
+          _this3.setState({
+            confirming: false
+          });
+
+          var userdata = res.data.userdata;
+          userdata.password = _this3.state.password;
+
+          _this3.props.updateUser(userdata);
+
+          Object(_utilities_utilities__WEBPACK_IMPORTED_MODULE_1__["setItem"])('userdata', userdata);
+          toastr__WEBPACK_IMPORTED_MODULE_3___default.a.success('Welcome To Falgun SMS Service', 'Hi ' + userdata.name + '!');
+
+          _this3.props.history.push('/dashboard');
+        } else {
+          toastr__WEBPACK_IMPORTED_MODULE_3___default.a.error(res.data.msg);
+        }
+      })["catch"](function (err) {
+        console.log(err);
+      });
     }
   }, {
     key: "render",
     value: function render() {
-      var _this2 = this;
+      var _this4 = this;
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "container"
@@ -68252,11 +68522,14 @@ function (_Component) {
         className: "card-body"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
         className: "card-title text-center"
-      }, "Sign Up"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+      }, this.state.confirming ? "Confirm Pin" : "Sign Up"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         className: "form-signin"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, !this.state.confirming && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-label-group"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        onKeyUp: function onKeyUp(e) {
+          e.keyCode == 13 ? _this4.signup() : null;
+        },
         type: "text",
         name: "name",
         value: this.state.name,
@@ -68268,9 +68541,12 @@ function (_Component) {
         autoFocus: true
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "inputName"
-      }, "Your Name")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Your Name")), !this.state.confirming && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-label-group"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        onKeyUp: function onKeyUp(e) {
+          e.keyCode == 13 ? _this4.signup() : null;
+        },
         type: "text",
         name: "mobile",
         value: this.state.mobile,
@@ -68281,9 +68557,12 @@ function (_Component) {
         required: true
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "inputMobile"
-      }, "Mobile Number")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Mobile Number")), !this.state.confirming && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-label-group"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        onKeyUp: function onKeyUp(e) {
+          e.keyCode == 13 ? _this4.signup() : null;
+        },
         type: "password",
         name: "password",
         value: this.state.password,
@@ -68294,29 +68573,52 @@ function (_Component) {
         required: true
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "inputPassword"
-      }, "Password")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }, "Password")), !this.state.confirming && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: this.signup.bind(this),
         className: "btn btn-lg btn-primary btn-block text-uppercase",
         type: "button"
-      }, "Sign Up"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", {
+      }, this.state.signupLoading ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        "class": "spinner-border spinner-border-sm",
+        role: "status"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        "class": "sr-only"
+      }, "Loading...")) : 'Sign Up'), this.state.confirming && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-label-group"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        onKeyUp: function onKeyUp(e) {
+          e.keyCode == 13 ? _this4.confirmPin() : null;
+        },
+        type: "text",
+        name: "pin",
+        value: this.state.pin,
+        onChange: this.cngText.bind(this),
+        id: "inputPin",
+        className: "form-control",
+        placeholder: "Pin",
+        required: true,
+        autoFocus: true
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "inputName"
+      }, "Pin")), this.state.confirming && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: this.confirmPin.bind(this),
+        className: "btn btn-lg btn-primary btn-block text-uppercase",
+        type: "button"
+      }, this.state.confirmLoading ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        "class": "spinner-border spinner-border-sm",
+        role: "status"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        "class": "sr-only"
+      }, "Loading...")) : 'Confilm Pin'), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", {
         className: "my-4"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: function onClick() {
-          return _this2.props.history.push('/forgetpassword');
-        },
-        className: "btn btn-lg btn-google btn-block text-uppercase",
-        type: "button"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fab fa-google mr-2"
-      }), " Forget Password"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        onClick: function onClick() {
-          return _this2.props.history.push('/');
+          return _this4.props.history.push('/');
         },
         className: "btn btn-lg btn-facebook btn-block text-uppercase",
         type: "button"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fab fa-facebook-f mr-2"
-      }), " Have Account? Sign In")))))));
+        "class": "fas fa-sign-in-alt mr-2"
+      }), " Want to Sign In?")))))));
     }
   }]);
 

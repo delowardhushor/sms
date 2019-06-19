@@ -20,7 +20,7 @@ export default class Header extends Component {
     logout(e){
         e.preventDefault();
         toastr.success('Thanks for using Falgun SMS service', 'Signed Out!');
-        this.props.updateUser(null);
+        this.props.updateUser('');
         removeItem('userdata');
         this.props.history.push('/signin');
     }

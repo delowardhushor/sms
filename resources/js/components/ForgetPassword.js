@@ -5,14 +5,19 @@ import axios from 'axios';
 
 import toastr from "toastr";
 
-export default class Signin extends Component {
+export default class ForgetPassword extends Component {
 
     constructor(props){
 		super(props);
 		this.state={
-            loginLoading:false,
+            pinSending:false,
             mobile:'',
-            password:'',
+            
+            recoverPass:false,
+            pin:'',
+
+            newPass:'',
+            conPass:''
 		};
 	}
 
@@ -65,31 +70,26 @@ export default class Signin extends Component {
                 <div className="col-sm-9 col-md-7 col-lg-5 mx-auto">
                     <div className="card card-signin my-5">
                     <div className="card-body">
-                        <h5 className="card-title text-center">Sign In</h5>
+                        <h5 className="card-title text-center">Recover Password</h5>
                         <form className="form-signin">
 
                         <div className="form-label-group">
                             <input type="text" onKeyUp={(e) => {e.keyCode == 13 ? this.login() : null}} name="mobile" value={this.state.mobile} onChange={this.cngText.bind(this)} id="inputEmail" className="form-control" placeholder="Mobile Number" required autoFocus />
                             <label htmlFor="inputEmail">Mobile Number</label>
                         </div>
-
-                        <div className="form-label-group">
-                            <input type="password" onKeyUp={(e) => {e.keyCode == 13 ? this.login() : null}}  name="password" value={this.state.password} onChange={this.cngText.bind(this)} id="inputPassword" className="form-control" placeholder="Password" required />
-                            <label htmlFor="inputPassword">Password</label>
-                        </div>
                         
                         <button onClick={this.login.bind(this)} className="btn btn-lg btn-primary btn-block text-uppercase" type="button">
-                            {this.state.loginLoading ? 
+                            {this.state.pinSending ? 
                                 <div class="spinner-border spinner-border-sm" role="status">
                                     <span class="sr-only">Loading...</span>
                                 </div> 
                                     : 
-                                'Sign in'
+                                'Recover'
                             } 
                         </button>
                         <hr className="my-4"/>
-                        <button onClick={()=> this.props.history.push('/forgetpassword')} className="btn btn-lg btn-google btn-block text-uppercase" type="button"><i class="fas fa-fingerprint mr-2"></i> Forget Password</button>
-                        <button onClick={()=> this.props.history.push('/signup')} className="btn btn-lg btn-facebook btn-block text-uppercase" type="button"><i class="fas fa-user-plus mr-2"></i> No Account? Sign Up</button>
+
+                        <button onClick={()=> this.props.history.push('/signin')} className="btn btn-lg btn-facebook btn-block text-uppercase" type="button"><i class="fas fa-user-plus mr-2"></i> Sign In</button>
 
                         </form>
                     </div>
