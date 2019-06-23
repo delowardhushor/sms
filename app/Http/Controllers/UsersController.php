@@ -110,8 +110,8 @@ class UsersController extends Controller
                             'name' => $Users->name, 
                             'mobile' => $Users->mobile,
                             'type' => $Users->type,
-                            'balance' => $user->balance
-                        ], 
+                            'balance' => $Users->balance
+                        ]
                 ];
             }
         }else{
@@ -152,7 +152,7 @@ class UsersController extends Controller
                             'mobile' => $user->mobile,
                             'type' => $user->type,
                             'balance' => $user->balance
-                        ], 
+                        ]
                 ];
             }
         }else{

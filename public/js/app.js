@@ -67497,11 +67497,11 @@ function (_Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(ForgetPassword).call(this, props));
     _this.state = {
-      pinSending: false,
+      loading: false,
       mobile: '',
-      recoverPass: false,
+      pinSent: false,
       pin: '',
-      newPass: '',
+      password: '',
       conPass: ''
     };
     return _this;
@@ -67510,48 +67510,87 @@ function (_Component) {
   _createClass(ForgetPassword, [{
     key: "componentWillMount",
     value: function componentWillMount() {
-      console.log(this.props);
-
       if (this.props.userdata != null && this.props.userdata != '') {
         this.props.history.push('/dashboard');
       }
     }
   }, {
-    key: "login",
-    value: function login() {
+    key: "setPin",
+    value: function setPin() {
       var _this2 = this;
 
       this.setState({
-        loginLoading: true
+        loading: true
       });
-      axios__WEBPACK_IMPORTED_MODULE_2___default.a.post('/signin', {
-        mobile: this.state.mobile,
-        password: this.state.password
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a.post('/setpin', {
+        mobile: this.state.mobile
       }).then(function (res) {
         _this2.setState({
-          loginLoading: false
+          loading: false
         });
 
         if (res.data.success) {
-          var userdata = res.data.userdata;
-          userdata.password = _this2.state.password;
+          _this2.setState({
+            pinSent: true
+          });
 
-          _this2.props.updateUser(userdata);
-
-          Object(_utilities_utilities__WEBPACK_IMPORTED_MODULE_1__["setItem"])('userdata', userdata);
-          toastr__WEBPACK_IMPORTED_MODULE_3___default.a.success('Welcome To Falgun SMS Service', 'Hi ' + userdata.name + '!');
-
-          _this2.props.history.push('/dashboard');
+          toastr__WEBPACK_IMPORTED_MODULE_3___default.a.success('Please Update Your Password Using The Pin Sent to Your Mobile', 'Pin Sent');
         } else {
           toastr__WEBPACK_IMPORTED_MODULE_3___default.a.error(res.data.msg);
         }
       })["catch"](function (err) {
         _this2.setState({
-          loginLoading: false
+          loading: false
         });
-
-        console.log(err);
       });
+    }
+  }, {
+    key: "recoverPass",
+    value: function recoverPass() {
+      var _this3 = this;
+
+      console.log(this.state);
+
+      if (this.state.password !== this.state.conPass) {
+        toastr__WEBPACK_IMPORTED_MODULE_3___default.a.error("Confirm Password Didn't Matched");
+      } else if (this.state.mobile && this.state.password && this.state.conPass && this.state.pin) {
+        this.setState({
+          loading: true
+        });
+        axios__WEBPACK_IMPORTED_MODULE_2___default.a.post('/recoverpass', {
+          mobile: this.state.mobile,
+          password: this.state.password,
+          pin: this.state.pin
+        }).then(function (res) {
+          _this3.setState({
+            loading: false
+          });
+
+          console.log(res);
+
+          if (res.data.success) {
+            var userdata = res.data.userdata;
+            userdata.password = _this3.state.password;
+
+            _this3.props.updateUser(userdata);
+
+            Object(_utilities_utilities__WEBPACK_IMPORTED_MODULE_1__["setItem"])('userdata', userdata);
+            toastr__WEBPACK_IMPORTED_MODULE_3___default.a.success('Welcome To Falgun SMS Service', 'Hi ' + userdata.name + '!');
+
+            _this3.props.history.push('/dashboard');
+          } else {
+            toastr__WEBPACK_IMPORTED_MODULE_3___default.a.error(res.data.msg);
+          }
+        })["catch"](function (err) {
+          _this3.setState({
+            loading: false
+          });
+
+          console.log(err);
+        });
+      } else {
+        toastr__WEBPACK_IMPORTED_MODULE_3___default.a.error("Fill Empty");
+      }
     }
   }, {
     key: "cngText",
@@ -67567,12 +67606,20 @@ function (_Component) {
         this.setState({
           password: value
         });
+      } else if (name == 'conPass') {
+        this.setState({
+          conPass: value
+        });
+      } else if (name == 'pin') {
+        this.setState({
+          pin: value
+        });
       }
     }
   }, {
     key: "render",
     value: function render() {
-      var _this3 = this;
+      var _this4 = this;
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "container"
@@ -67588,12 +67635,12 @@ function (_Component) {
         className: "card-title text-center"
       }, "Recover Password"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         className: "form-signin"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, !this.state.pinSent && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-label-group"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         onKeyUp: function onKeyUp(e) {
-          e.keyCode == 13 ? _this3.login() : null;
+          e.keyCode == 13 ? _this4.setPin() : null;
         },
         name: "mobile",
         value: this.state.mobile,
@@ -67605,25 +67652,85 @@ function (_Component) {
         autoFocus: true
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "inputEmail"
-      }, "Mobile Number")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        onClick: this.login.bind(this),
+      }, "Mobile Number")), !this.state.pinSent && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: this.setPin.bind(this),
         className: "btn btn-lg btn-primary btn-block text-uppercase",
         type: "button"
-      }, this.state.pinSending ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, this.state.loading ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         "class": "spinner-border spinner-border-sm",
         role: "status"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         "class": "sr-only"
-      }, "Loading...")) : 'Recover'), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", {
+      }, "Loading...")) : 'Recover'), this.state.pinSent && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-label-group"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        onKeyUp: function onKeyUp(e) {
+          e.keyCode == 13 ? _this4.recoverPass() : null;
+        },
+        name: "pin",
+        value: this.state.pin,
+        onChange: this.cngText.bind(this),
+        id: "sentPin",
+        className: "form-control",
+        placeholder: "Pin",
+        required: true,
+        autoFocus: true
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "sentPin"
+      }, "Pin")), this.state.pinSent && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-label-group"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "password",
+        onKeyUp: function onKeyUp(e) {
+          e.keyCode == 13 ? _this4.recoverPass() : null;
+        },
+        name: "password",
+        value: this.state.password,
+        onChange: this.cngText.bind(this),
+        id: "password",
+        className: "form-control",
+        placeholder: "New Password",
+        required: true,
+        autoFocus: true
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "password"
+      }, "New Password")), this.state.pinSent && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-label-group"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "password",
+        onKeyUp: function onKeyUp(e) {
+          e.keyCode == 13 ? _this4.recoverPass() : null;
+        },
+        name: "conPass",
+        value: this.state.conPass,
+        onChange: this.cngText.bind(this),
+        id: "conPass",
+        className: "form-control",
+        placeholder: "Confirm Password",
+        required: true,
+        autoFocus: true
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "conPass"
+      }, "Confirm Password")), this.state.pinSent && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: this.recoverPass.bind(this),
+        className: "btn btn-lg btn-primary btn-block text-uppercase",
+        type: "button"
+      }, this.state.loading ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        "class": "spinner-border spinner-border-sm",
+        role: "status"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        "class": "sr-only"
+      }, "Loading...")) : 'Confirm'), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", {
         className: "my-4"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: function onClick() {
-          return _this3.props.history.push('/signin');
+          return _this4.props.history.push('/signin');
         },
         className: "btn btn-lg btn-facebook btn-block text-uppercase",
         type: "button"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        "class": "fas fa-user-plus mr-2"
+        "class": "fas fa-sign-in mr-2"
       }), " Sign In")))))));
     }
   }]);
