@@ -83,6 +83,7 @@ export default class App extends Component {
                 this.setState({userdata:userdata});
             }else{
                 removeItem('userdata');
+                this.setState({userdata:''});
                 toastr.error("Please Signin", "Session Expired");
             }
         })

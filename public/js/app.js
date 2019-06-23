@@ -66934,7 +66934,7 @@ function (_Component) {
         className: "col-12"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
         className: "text-center"
-      }, "Sent SMS List"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Sent SMS List"))), AllSms.data.length > 0 && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "row"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-12"
@@ -66948,10 +66948,12 @@ function (_Component) {
         scope: "col"
       }, "Numbers"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
         scope: "col"
-      }, "Message"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, AllSmsList))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_modules_Pagination__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      }, "Message"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, AllSmsList))))), AllSms.data.length > 0 ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_modules_Pagination__WEBPACK_IMPORTED_MODULE_5__["default"], {
         data: AllSms,
         loadPage: this.loadPage
-      }))));
+      }) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "text-center"
+      }, "No data Found"))));
     }
   }]);
 
@@ -67113,6 +67115,11 @@ function (_Component) {
           });
         } else {
           Object(_utilities_utilities__WEBPACK_IMPORTED_MODULE_3__["removeItem"])('userdata');
+
+          _this2.setState({
+            userdata: ''
+          });
+
           toastr__WEBPACK_IMPORTED_MODULE_14___default.a.error("Please Signin", "Session Expired");
         }
       })["catch"](function (err) {
@@ -68193,7 +68200,7 @@ function (_Component) {
         className: "col-12"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
         className: "text-center"
-      }, "Recharge History"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Recharge History"))), recharges.data.length > 0 && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "row"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-12"
@@ -68207,10 +68214,12 @@ function (_Component) {
         scope: "col"
       }, "Amount"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
         scope: "col"
-      }, "Status"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, RechargeList))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_modules_Pagination__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      }, "Status"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, RechargeList))))), recharges.data.length > 0 ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_modules_Pagination__WEBPACK_IMPORTED_MODULE_5__["default"], {
         data: recharges,
         loadPage: this.loadPage
-      }))));
+      }) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "text-center"
+      }, "No data Found"))));
     }
   }]);
 
@@ -69412,7 +69421,7 @@ function (_Component) {
         className: "page-item active"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "page-link"
-      }, data.current_page)), data.last_page > data.current_page && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+      }, data.current_page ? data.current_page : 0)), data.last_page > data.current_page && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         onClick: function onClick() {
           return loadPage(Object(_utilities_utilities__WEBPACK_IMPORTED_MODULE_1__["baseUrl"])() + '/allsms?page=' + (data.current_page + 1));
         },

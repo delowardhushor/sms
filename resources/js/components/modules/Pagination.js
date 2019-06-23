@@ -39,7 +39,7 @@ export default class Pagination extends Component {
                             }
 
                             <li onClick={() => loadPage(baseUrl()+'/allsms?page='+data.current_page)} className="page-item active">
-                                <span className="page-link">{data.current_page}</span>
+                                <span className="page-link">{data.current_page ? data.current_page : 0}</span>
                             </li>
 
                             {(data.last_page > data.current_page) &&

@@ -192,6 +192,8 @@ export default class Recharge extends Component {
                                 <h3 className="text-center">Recharge History</h3>
                             </div>
                         </div>
+
+                        {(recharges.data.length > 0) &&
                         <div className='row'>
                             <div className='col-12'>
                                 <div class="table-responsive">
@@ -210,7 +212,9 @@ export default class Recharge extends Component {
                                 </div>
                             </div>
                         </div>
-                        <Pagination data={recharges} loadPage={this.loadPage} />
+                        }
+
+                        {recharges.data.length > 0 ? <Pagination data={recharges} loadPage={this.loadPage} /> : <p className="text-center">No data Found</p>}
                     </div>
                 </div>
             </div>

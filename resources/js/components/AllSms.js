@@ -86,7 +86,7 @@ export default class AllSms extends Component {
                                 <h3 className="text-center">Sent SMS List</h3>
                             </div>
                         </div>
-                        
+                        {(AllSms.data.length > 0) &&
                         <div className='row'>
                             <div className='col-12'>
                                 <div class="table-responsive">
@@ -105,7 +105,9 @@ export default class AllSms extends Component {
                                 </div>
                             </div>
                         </div>
-                        <Pagination data={AllSms} loadPage={this.loadPage} />
+                        }
+
+                        {AllSms.data.length > 0 ? <Pagination data={AllSms} loadPage={this.loadPage} /> : <p className="text-center">No data Found</p>}
                     </div>
                 </div>
             </div>
