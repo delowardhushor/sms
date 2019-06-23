@@ -14,6 +14,7 @@ import AllSms from './AllSms';
 import DocApi from './DocApi';
 import Recharge from './Recharge';
 import ForgetPassword from './ForgetPassword';
+import UpdatePassword from './UpdatePassword';
 
 import toastr from 'toastr';
 
@@ -124,6 +125,11 @@ export default class App extends Component {
                         exact 
                         path="/forgetpassword" 
                         render={(props) => <ForgetPassword {...props} userdata={userdata} updateUser={this.updateUser} />} 
+                    />
+                    <Route
+                        exact 
+                        path="/updatepassword" 
+                        render={(props) => <UpdatePassword {...props} userdata={userdata} updateUser={this.updateUser} />} 
                     />
                     <Route
                         exact 

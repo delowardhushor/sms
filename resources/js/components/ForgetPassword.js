@@ -157,7 +157,7 @@ export default class ForgetPassword extends Component {
 
                         <hr className="my-4"/>
 
-                        <button onClick={()=> this.props.history.push('/signin')} className="btn btn-lg btn-facebook btn-block text-uppercase" type="button"><i class="fas fa-sign-in mr-2"></i> Sign In</button>
+                        <button onClick={()=> this.props.history.push('/signin')} className="btn btn-lg btn-facebook btn-block text-uppercase" type="button"><i class="fas fa-sign-in-alt mr-2"></i> Sign In</button>
 
                         </form>
                     </div>

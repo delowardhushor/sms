@@ -6520,7 +6520,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "body {\r\n    background-color: #fff;\r\n    font-family: 'Poppins';\r\n}\r\n\r\n:root {\r\n    --input-padding-x: 1.5rem;\r\n    --input-padding-y: .75rem;\r\n  }\r\n\r\n  .card-signin {\r\n    border: 0;\r\n    border-radius: 1rem;\r\n    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.5);\r\n  }\r\n  \r\n  .card-signin .card-title {\r\n    margin-bottom: 2rem;\r\n    font-weight: 300;\r\n    font-size: 1.5rem;\r\n  }\r\n  \r\n  .card-signin .card-body {\r\n    padding: 2rem;\r\n  }\r\n  \r\n  .form-signin {\r\n    width: 100%;\r\n  }\r\n  \r\n  .form-signin .btn {\r\n    font-size: 80%;\r\n    border-radius: 5rem;\r\n    letter-spacing: .1rem;\r\n    font-weight: bold;\r\n    padding: 1rem;\r\n    transition: all 0.2s;\r\n  }\r\n  \r\n  .form-label-group {\r\n    position: relative;\r\n    margin-bottom: 1rem;\r\n  }\r\n  \r\n  .form-label-group input {\r\n    height: auto;\r\n    border-radius: 2rem;\r\n  }\r\n  \r\n  .form-label-group>input,\r\n  .form-label-group>label {\r\n    padding: var(--input-padding-y) var(--input-padding-x);\r\n  }\r\n  \r\n  .form-label-group>label {\r\n    position: absolute;\r\n    top: 0;\r\n    left: 0;\r\n    display: block;\r\n    width: 100%;\r\n    margin-bottom: 0;\r\n    /* Override default `<label>` margin */\r\n    line-height: 1.5;\r\n    color: #495057;\r\n    border: 1px solid transparent;\r\n    border-radius: .25rem;\r\n    transition: all .1s ease-in-out;\r\n  }\r\n  \r\n  .form-label-group input::-webkit-input-placeholder {\r\n    color: transparent;\r\n  }\r\n  \r\n  .form-label-group input:-ms-input-placeholder {\r\n    color: transparent;\r\n  }\r\n  \r\n  .form-label-group input::-ms-input-placeholder {\r\n    color: transparent;\r\n  }\r\n  \r\n  .form-label-group input::-moz-placeholder {\r\n    color: transparent;\r\n  }\r\n  \r\n  .form-label-group input::placeholder {\r\n    color: transparent;\r\n  }\r\n  \r\n  .form-label-group input:not(:placeholder-shown) {\r\n    padding-top: calc(var(--input-padding-y) + var(--input-padding-y) * (2 / 3));\r\n    padding-bottom: calc(var(--input-padding-y) / 3);\r\n  }\r\n  \r\n  .form-label-group input:not(:placeholder-shown)~label {\r\n    padding-top: calc(var(--input-padding-y) / 3);\r\n    padding-bottom: calc(var(--input-padding-y) / 3);\r\n    font-size: 12px;\r\n    color: #777;\r\n  }\r\n  \r\n  .btn-google {\r\n    color: white;\r\n    background-color: #ea4335;\r\n  }\r\n  \r\n  .btn-facebook {\r\n    color: white;\r\n    background-color: #3b5998;\r\n  }\r\n  \r\n.header{\r\n  background-color: transparent;\r\n}\r\n\r\n.completed{\r\n  color: #38c172 !important;\r\n}\r\n\r\n.suspended{\r\n  color: #e3342f !important;\r\n}\r\n\r\n/* my css start */\r\n\r\n.f-c-sb{\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: space-between;\r\n}\r\n\r\n.f-c-sa{\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: space-around;\r\n}\r\n\r\n.fal-header{\r\n  display:flex;\r\n  height: 80px;\r\n  padding:0px 15px;\r\n  justify-content:space-between;\r\n  align-items:center;\r\n  box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);\r\n}\r\n\r\n.header-right{\r\n  display: flex;\r\n  flex-direction: row;\r\n  align-items: center;\r\n}\r\n\r\n.shadow{\r\n  box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);\r\n}\r\n\r\n.user-btn{\r\n  height:40px;\r\n  width:40px;\r\n  cursor: pointer;\r\n  font-size: 24px;\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: center;\r\n  position: relative;\r\n}\r\n\r\n.account-btn-wrapper{\r\n  position: absolute;\r\n  z-index: 999;\r\n  right: 0px;\r\n  top: 40px;\r\n  width: 150px;\r\n  padding: 15px;\r\n  font-size: 14px;\r\n  flex-direction: column;\r\n  border-radius: 10px;\r\n  text-align: center;\r\n  display: flex;\r\n  background-color: #fff;\r\n  box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.3);\r\n}\r\n\r\n.account-btn-wrapper a{\r\n  padding: 10px 0px;\r\n  border-bottom: .5px solid #ddd;\r\n  text-decoration: none;\r\n  color: #000;\r\n}\r\n\r\n.account-btn-wrapper a:last-child{\r\n  border-bottom: 0px;\r\n}\r\n\r\n.main-wrapper{\r\n  display: flex;\r\n  justify-content: flex-start;\r\n}\r\n\r\n.main-page{\r\n  padding: 15px;\r\n  min-height: 1000px;\r\n}\r\n\r\n.sidebar{\r\n  width:200px;\r\n}\r\n\r\n.list-group-item:first-child {\r\n  border-top-left-radius: 0px;\r\n  border-top-right-radius: 0px;\r\n}\r\n\r\n.closable-tag {\r\n  padding: 5px 10px;\r\n  border-radius: 20px;\r\n  background: #000;\r\n  color: #fff;\r\n  margin: 0px 10px;\r\n  font-size: 12px;\r\n  cursor: pointer;\r\n}\r\n\r\n.closable-tag i{\r\n  margin-left: 10px;\r\n}\r\n\r\n.page-item{\r\n  cursor: pointer;\r\n}\r\n\r\n@media (min-width: 992px){\r\n  .navbar-expand-lg {\r\n      flex-flow: wrap;\r\n      justify-content: space-between;\r\n  }\r\n}", ""]);
+exports.push([module.i, "body {\r\n    background-color: #fff;\r\n    font-family: 'Poppins';\r\n}\r\n\r\n:root {\r\n    --input-padding-x: 1.5rem;\r\n    --input-padding-y: .75rem;\r\n  }\r\n\r\n  \r\n.btn:hover {\r\n  color: #fff;\r\n  text-decoration: none;\r\n}\r\n\r\n  .card-signin {\r\n    border: 0;\r\n    border-radius: 1rem;\r\n    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.5);\r\n  }\r\n  \r\n  .card-signin .card-title {\r\n    margin-bottom: 2rem;\r\n    font-weight: 300;\r\n    font-size: 1.5rem;\r\n  }\r\n  \r\n  .card-signin .card-body {\r\n    padding: 2rem;\r\n  }\r\n  \r\n  .form-signin {\r\n    width: 100%;\r\n  }\r\n  \r\n  .form-signin .btn {\r\n    font-size: 80%;\r\n    border-radius: 5rem;\r\n    letter-spacing: .1rem;\r\n    font-weight: bold;\r\n    padding: 1rem;\r\n    transition: all 0.2s;\r\n  }\r\n  \r\n  .form-label-group {\r\n    position: relative;\r\n    margin-bottom: 1rem;\r\n  }\r\n  \r\n  .form-label-group input {\r\n    height: auto;\r\n    border-radius: 2rem;\r\n  }\r\n  \r\n  .form-label-group>input,\r\n  .form-label-group>label {\r\n    padding: var(--input-padding-y) var(--input-padding-x);\r\n  }\r\n  \r\n  .form-label-group>label {\r\n    position: absolute;\r\n    top: 0;\r\n    left: 0;\r\n    display: block;\r\n    width: 100%;\r\n    margin-bottom: 0;\r\n    /* Override default `<label>` margin */\r\n    line-height: 1.5;\r\n    color: #495057;\r\n    border: 1px solid transparent;\r\n    border-radius: .25rem;\r\n    transition: all .1s ease-in-out;\r\n  }\r\n  \r\n  .form-label-group input::-webkit-input-placeholder {\r\n    color: transparent;\r\n  }\r\n  \r\n  .form-label-group input:-ms-input-placeholder {\r\n    color: transparent;\r\n  }\r\n  \r\n  .form-label-group input::-ms-input-placeholder {\r\n    color: transparent;\r\n  }\r\n  \r\n  .form-label-group input::-moz-placeholder {\r\n    color: transparent;\r\n  }\r\n  \r\n  .form-label-group input::placeholder {\r\n    color: transparent;\r\n  }\r\n  \r\n  .form-label-group input:not(:placeholder-shown) {\r\n    padding-top: calc(var(--input-padding-y) + var(--input-padding-y) * (2 / 3));\r\n    padding-bottom: calc(var(--input-padding-y) / 3);\r\n  }\r\n  \r\n  .form-label-group input:not(:placeholder-shown)~label {\r\n    padding-top: calc(var(--input-padding-y) / 3);\r\n    padding-bottom: calc(var(--input-padding-y) / 3);\r\n    font-size: 12px;\r\n    color: #777;\r\n  }\r\n  \r\n  .btn-google {\r\n    color: white;\r\n    background-color: #ea4335;\r\n  }\r\n  \r\n  .btn-facebook {\r\n    color: white;\r\n    background-color: #3b5998;\r\n  }\r\n  \r\n.header{\r\n  background-color: transparent;\r\n}\r\n\r\n.completed{\r\n  color: #38c172 !important;\r\n}\r\n\r\n.suspended{\r\n  color: #e3342f !important;\r\n}\r\n\r\n/* my css start */\r\n\r\n.f-c-sb{\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: space-between;\r\n}\r\n\r\n.f-c-sa{\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: space-around;\r\n}\r\n\r\n.fal-header{\r\n  display:flex;\r\n  height: 80px;\r\n  padding:0px 15px;\r\n  justify-content:space-between;\r\n  align-items:center;\r\n  box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);\r\n}\r\n\r\n.header-right{\r\n  display: flex;\r\n  flex-direction: row;\r\n  align-items: center;\r\n}\r\n\r\n.shadow{\r\n  box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);\r\n}\r\n\r\n.user-btn{\r\n  height:40px;\r\n  width:40px;\r\n  cursor: pointer;\r\n  font-size: 24px;\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: center;\r\n  position: relative;\r\n}\r\n\r\n.account-btn-wrapper{\r\n  position: absolute;\r\n  z-index: 999;\r\n  right: 0px;\r\n  top: 40px;\r\n  width: 150px;\r\n  padding: 15px;\r\n  font-size: 14px;\r\n  flex-direction: column;\r\n  border-radius: 10px;\r\n  text-align: center;\r\n  display: flex;\r\n  background-color: #fff;\r\n  box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.3);\r\n}\r\n\r\n.account-btn-wrapper a{\r\n  padding: 10px 0px;\r\n  border-bottom: .5px solid #ddd;\r\n  text-decoration: none;\r\n  color: #000;\r\n}\r\n\r\n.account-btn-wrapper a:last-child{\r\n  border-bottom: 0px;\r\n}\r\n\r\n.main-wrapper{\r\n  display: flex;\r\n  justify-content: flex-start;\r\n}\r\n\r\n.main-page{\r\n  padding: 15px;\r\n  min-height: 1000px;\r\n}\r\n\r\n.sidebar{\r\n  width:200px;\r\n}\r\n\r\n.list-group-item:first-child {\r\n  border-top-left-radius: 0px;\r\n  border-top-right-radius: 0px;\r\n}\r\n\r\n.closable-tag {\r\n  padding: 5px 10px;\r\n  border-radius: 20px;\r\n  background: #000;\r\n  color: #fff;\r\n  margin: 0px 10px;\r\n  font-size: 12px;\r\n  cursor: pointer;\r\n}\r\n\r\n.closable-tag i{\r\n  margin-left: 10px;\r\n}\r\n\r\n.page-item{\r\n  cursor: pointer;\r\n}\r\n\r\ncode{\r\n  background-color: #fff;\r\n  border:.5px solid #ddd;\r\n  padding: 20px;\r\n  display: block;\r\n  font-size: 15px;\r\n\r\n}\r\n\r\ncode p{\r\n  margin-bottom: 2px;\r\n}\r\n\r\n.sp-1{\r\n  margin-left: 20px;\r\n}\r\n\r\n.sp-2{\r\n  margin-left: 40px;\r\n}\r\n\r\n.sp-3{\r\n  margin-left: 60px;\r\n}\r\n\r\n.sp-4{\r\n  margin-left: 80px;\r\n}\r\n\r\n@media (min-width: 992px){\r\n  .navbar-expand-lg {\r\n      flex-flow: wrap;\r\n      justify-content: space-between;\r\n  }\r\n}", ""]);
 
 // exports
 
@@ -66988,8 +66988,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _DocApi__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./DocApi */ "./resources/js/components/DocApi.js");
 /* harmony import */ var _Recharge__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./Recharge */ "./resources/js/components/Recharge.js");
 /* harmony import */ var _ForgetPassword__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./ForgetPassword */ "./resources/js/components/ForgetPassword.js");
-/* harmony import */ var toastr__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! toastr */ "./node_modules/toastr/toastr.js");
-/* harmony import */ var toastr__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(toastr__WEBPACK_IMPORTED_MODULE_13__);
+/* harmony import */ var _UpdatePassword__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./UpdatePassword */ "./resources/js/components/UpdatePassword.js");
+/* harmony import */ var toastr__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! toastr */ "./node_modules/toastr/toastr.js");
+/* harmony import */ var toastr__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(toastr__WEBPACK_IMPORTED_MODULE_14__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
@@ -67024,7 +67025,8 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
-toastr__WEBPACK_IMPORTED_MODULE_13___default.a.options = {
+
+toastr__WEBPACK_IMPORTED_MODULE_14___default.a.options = {
   "closeButton": false,
   "debug": false,
   "newestOnTop": false,
@@ -67111,10 +67113,10 @@ function (_Component) {
           });
         } else {
           Object(_utilities_utilities__WEBPACK_IMPORTED_MODULE_3__["removeItem"])('userdata');
-          toastr__WEBPACK_IMPORTED_MODULE_13___default.a.error("Please Signin", "Session Expired");
+          toastr__WEBPACK_IMPORTED_MODULE_14___default.a.error("Please Signin", "Session Expired");
         }
       })["catch"](function (err) {
-        toastr__WEBPACK_IMPORTED_MODULE_13___default.a.error(err);
+        toastr__WEBPACK_IMPORTED_MODULE_14___default.a.error(err);
       });
     }
   }, {
@@ -67166,6 +67168,15 @@ function (_Component) {
         path: "/forgetpassword",
         render: function render(props) {
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ForgetPassword__WEBPACK_IMPORTED_MODULE_12__["default"], _extends({}, props, {
+            userdata: userdata,
+            updateUser: _this3.updateUser
+          }));
+        }
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+        exact: true,
+        path: "/updatepassword",
+        render: function render(props) {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_UpdatePassword__WEBPACK_IMPORTED_MODULE_13__["default"], _extends({}, props, {
             userdata: userdata,
             updateUser: _this3.updateUser
           }));
@@ -67417,24 +67428,77 @@ function (_Component) {
     key: "render",
     value: function render() {
       console.log(this.props);
+      var phpCode = "<?php \n $r = new HttpRequest('http://example.com/form.php', HttpRequest::METH_POST); $r->setOptions(array('cookies' => array('lang' => 'de'))); $r->addPostFields(array('user' => 'mike', 'pass' => 's3c|r3t')); try { echo $r->send()->getBody(); } catch (HttpException $ex) { echo $ex; } ?>";
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Header__WEBPACK_IMPORTED_MODULE_2__["default"], {
         userdata: this.props.userdata,
         history: this.props.history,
         updateUser: this.props.updateUser
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "main-wrapper",
-        style: {
-          width: Object(_utilities_utilities__WEBPACK_IMPORTED_MODULE_4__["mainPageWidth"])()
-        }
+        className: "main-wrapper"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Sidebar__WEBPACK_IMPORTED_MODULE_3__["default"], {
         history: this.props.history
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "main-page"
+        className: "main-page",
+        style: {
+          width: Object(_utilities_utilities__WEBPACK_IMPORTED_MODULE_4__["mainPageWidth"])()
+        }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "row"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-12"
-      })))));
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+        className: "text-center"
+      }, "Api Documentation"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+        className: "text-center"
+      }, "Sent SMS from your Website or Mobile App"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "row"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-12"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Using PHP:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Just Copy The Code and place in your php file. Replace ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "\"Mobile\""), ", ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "\"Password\""), ", ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "\"Numbers\""), ", ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "\"msg\""), " value with your own data. "))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "row"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-12"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("code", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "<?php"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "sp-1"
+      }, "$url = 'http://sms.falgunit.com/api/sms';"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "sp-1"
+      }, "$data = array("), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "sp-2"
+      }, "'mobile' => 'Your Account Mobile',"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "sp-2"
+      }, "'password' => 'Your Password',"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "sp-2"
+      }, "'numbers' => 'Your Numbers',"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "sp-2"
+      }, "'msg' => 'Your Message'"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "sp-1"
+      }, ");"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "sp-1"
+      }, "$options = array("), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "sp-2"
+      }, "'http' => array("), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "sp-3"
+      }, '"header"  => "Content-type: application/x-www-form-urlencoded\\r\\n",'), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "sp-3"
+      }, "'method'  => 'POST',"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "sp-3"
+      }, "'content' => http_build_query($data)"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "sp-2"
+      }, ")"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "sp-1"
+      }, ");"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "sp-1"
+      }, "$context  = stream_context_create($options);"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "sp-1"
+      }, "$result = file_get_contents($url, false, $context);"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "sp-1"
+      }, "if ($result === FALSE) { "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "sp-2"
+      }, "/* Handle error */"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "sp-1"
+      }, "}"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "sp-1"
+      }, "print_r($result);"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "?>")))))));
     }
   }]);
 
@@ -67730,7 +67794,7 @@ function (_Component) {
         className: "btn btn-lg btn-facebook btn-block text-uppercase",
         type: "button"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        "class": "fas fa-sign-in mr-2"
+        "class": "fas fa-sign-in-alt mr-2"
       }), " Sign In")))))));
     }
   }]);
@@ -67837,10 +67901,8 @@ function (_Component) {
       }), this.state.showAccount && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "account-btn-wrapper"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-        to: "/"
-      }, "Profile"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-        to: "/"
-      }, "Profile"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        to: "/updatepassword"
+      }, "Update Password"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         href: "#",
         onClick: this.logout.bind(this)
       }, "Signout")))));
@@ -68990,6 +69052,231 @@ function (_Component) {
   }]);
 
   return Sms;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/UpdatePassword.js":
+/*!***************************************************!*\
+  !*** ./resources/js/components/UpdatePassword.js ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return UpdatePassword; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var toastr__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! toastr */ "./node_modules/toastr/toastr.js");
+/* harmony import */ var toastr__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(toastr__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _Header__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Header */ "./resources/js/components/Header.js");
+/* harmony import */ var _Sidebar__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Sidebar */ "./resources/js/components/Sidebar.js");
+/* harmony import */ var _modules_Pagination__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/Pagination */ "./resources/js/components/modules/Pagination.js");
+/* harmony import */ var _utilities_utilities__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./utilities/utilities */ "./resources/js/components/utilities/utilities.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+
+
+
+
+
+var UpdatePassword =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(UpdatePassword, _Component);
+
+  function UpdatePassword(props) {
+    var _this;
+
+    _classCallCheck(this, UpdatePassword);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(UpdatePassword).call(this, props));
+    _this.state = {
+      loading: false,
+      oldPass: '',
+      newPass: '',
+      conPass: ''
+    };
+    return _this;
+  }
+
+  _createClass(UpdatePassword, [{
+    key: "componentWillMount",
+    value: function componentWillMount() {
+      if (this.props.userdata == null || this.props.userdata == '') {
+        this.props.history.push('/signin');
+      }
+    }
+  }, {
+    key: "cngPass",
+    value: function cngPass() {
+      var _this2 = this;
+
+      if (this.state.newPass !== this.state.conPass) {
+        toastr__WEBPACK_IMPORTED_MODULE_2___default.a.error("Confirm Password Didn't Matched");
+      } else if (this.props.userdata.mobile && this.state.oldPass && this.state.conPass && this.state.newPass) {
+        this.setState({
+          loading: true
+        });
+        axios__WEBPACK_IMPORTED_MODULE_1___default.a.post('/cngpass', {
+          mobile: this.props.userdata.mobile,
+          newPass: this.state.newPass,
+          oldPass: this.state.oldPass
+        }).then(function (res) {
+          _this2.setState({
+            loading: false
+          });
+
+          console.log(res);
+
+          if (res.data.success) {
+            var userdata = JSON.parse(JSON.stringify(_this2.props.userdata));
+            userdata.password = _this2.state.newPass;
+
+            _this2.props.updateUser(userdata);
+
+            Object(_utilities_utilities__WEBPACK_IMPORTED_MODULE_6__["setItem"])('userdata', userdata);
+            toastr__WEBPACK_IMPORTED_MODULE_2___default.a.success('Password Updated');
+          } else {
+            toastr__WEBPACK_IMPORTED_MODULE_2___default.a.error(res.data.msg);
+          }
+        })["catch"](function (err) {
+          console.log(err);
+
+          _this2.setState({
+            loading: false
+          });
+        });
+      } else {
+        toastr__WEBPACK_IMPORTED_MODULE_2___default.a.error("Fill Empty");
+      }
+    }
+  }, {
+    key: "componentWillReceiveProps",
+    value: function componentWillReceiveProps() {}
+  }, {
+    key: "cngText",
+    value: function cngText(e) {
+      var name = e.target.name;
+      var value = e.target.value;
+
+      if (name == 'oldPass') {
+        this.setState({
+          oldPass: value
+        });
+      } else if (name == 'newPass') {
+        this.setState({
+          newPass: value
+        });
+      } else if (name == 'conPass') {
+        this.setState({
+          conPass: value
+        });
+      }
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Header__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        userdata: this.props.userdata,
+        history: this.props.history,
+        updateUser: this.props.updateUser
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "main-wrapper"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Sidebar__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        history: this.props.history
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "main-page",
+        style: {
+          width: Object(_utilities_utilities__WEBPACK_IMPORTED_MODULE_6__["mainPageWidth"])()
+        }
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "row"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-12"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+        className: "text-center"
+      }, "Update Password"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "row justify-content-center mt-5"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-12 col-sm-6"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        "class": "form-group"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Current Password"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        onChange: this.cngText.bind(this),
+        value: this.state.oldPass,
+        name: "oldPass",
+        "class": "form-control form-control",
+        type: "password",
+        placeholder: "Current Password"
+      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "row justify-content-center"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-12 col-sm-6"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        "class": "form-group"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "New Password"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        onChange: this.cngText.bind(this),
+        value: this.state.newPass,
+        name: "newPass",
+        "class": "form-control form-control",
+        type: "password",
+        placeholder: "New Password"
+      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "row justify-content-center"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-12 col-sm-6"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        "class": "form-group"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Confirm New Password"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        onChange: this.cngText.bind(this),
+        value: this.state.conPass,
+        name: "conPass",
+        "class": "form-control form-control",
+        type: "password",
+        placeholder: "Confirm New Password"
+      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "row justify-content-center "
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-12 col-sm-6"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: this.cngPass.bind(this),
+        type: "button",
+        "class": "btn btn-dark btn-sm"
+      }, this.state.rechargeLoading ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        "class": "spinner-border spinner-border-sm",
+        role: "status"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        "class": "sr-only"
+      }, "Loading...")) : 'Update'))))));
+    }
+  }]);
+
+  return UpdatePassword;
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
 

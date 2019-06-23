@@ -8,6 +8,12 @@ body {
     --input-padding-y: .75rem;
   }
 
+  
+.btn:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
   .card-signin {
     border: 0;
     border-radius: 1rem;
@@ -227,6 +233,35 @@ body {
 
 .page-item{
   cursor: pointer;
+}
+
+code{
+  background-color: #fff;
+  border:.5px solid #ddd;
+  padding: 20px;
+  display: block;
+  font-size: 15px;
+
+}
+
+code p{
+  margin-bottom: 2px;
+}
+
+.sp-1{
+  margin-left: 20px;
+}
+
+.sp-2{
+  margin-left: 40px;
+}
+
+.sp-3{
+  margin-left: 60px;
+}
+
+.sp-4{
+  margin-left: 80px;
 }
 
 @media (min-width: 992px){

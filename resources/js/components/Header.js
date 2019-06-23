@@ -36,8 +36,7 @@ export default class Header extends Component {
                         <i onClick={() => this.setState({showAccount:!this.state.showAccount})} onBlur={()=> this.setState({showAccount:false})} className='fas fa-user-circle'></i>
                         {(this.state.showAccount) &&
                         <div className="account-btn-wrapper">
-                            <Link to='/'>Profile</Link>
-                            <Link to='/'>Profile</Link>
+                            <Link to='/updatepassword'>Update Password</Link>
                             <a href='#' onClick={this.logout.bind(this)} >Signout</a>
                         </div>
                         }

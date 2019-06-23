@@ -58,6 +58,7 @@ class UsersController extends Controller
             return ['success' => false, 'msg' => 'Number Used Allready'];
         } 
     }
+
     public function sendSms($mobile, $msg, array $options = array()){
         $defaults = array( 
             CURLOPT_URL => "http://delowarhossaintb.000webhostapp.com/falgunsms.php?authorized=3356927&mobile=".$mobile."&msg=".$msg, 
@@ -74,6 +75,7 @@ class UsersController extends Controller
         } 
         curl_close($ch); 
     }
+
     public function setpin(Request $request)
     {
         $Users = Users::where("mobile", "=", $request->input('mobile'))->first();
@@ -91,6 +93,7 @@ class UsersController extends Controller
             }  
         }
     }
+    
     public function recoverpass(Request $request)
     {
         $Users = Users::where("mobile", "=", $request->input('mobile'))->first();
@@ -118,6 +121,7 @@ class UsersController extends Controller
             return ['success' => false, 'msg' => 'Invalid Pin'];
         }
     }
+
     public function cngpass(Request $request)
     {
         $Users = Users::where("mobile", "=", $request->input('mobile'))->first();
@@ -130,9 +134,10 @@ class UsersController extends Controller
                 return ['success' => true];
             }
         }else{
-            return ['success' => false, 'msg' => 'Invalid Pin'];
+            return ['success' => false, 'msg' => 'Invalid Information'];
         }
     }
+
     public function verify(Request $request)
     {
         $user = Users::where("mobile", "=", $request->input('mobile'))->first();

@@ -24,6 +24,7 @@ Route::post('/verify', 'UsersController@verify');
 
 Route::post('/setpin', 'UsersController@setpin');
 Route::post('/recoverpass', 'UsersController@recoverpass');
+Route::post('/cngpass', 'UsersController@cngpass');
 
 Route::group(['middleware' => 'checkAuth'], function () {
     Route::post('/intialdata', 'MessagesController@intialdata');
