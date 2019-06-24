@@ -241,7 +241,10 @@ code{
   padding: 20px;
   display: block;
   font-size: 15px;
+}
 
+pre{
+  color: #f66d9b;
 }
 
 code p{

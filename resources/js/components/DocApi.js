@@ -57,33 +57,66 @@ export default class DocApi extends Component {
 
                         <div className="row">
                             <div className='col-12'>
-                                <code>
-                                    <p>{"<?php"}</p>
+                                <pre>
+                                    <code>
+                                        <p>{"<?php"}</p>
 
-                                    <p className="sp-1">{"$url = 'http://sms.falgunit.com/api/sms';"}</p>
+                                        <p>    {"$url = 'http://sms.falgunit.com/api/sms';"}</p>
 
-                                    <p className="sp-1">{"$data = array("}</p>
-                                        <p className="sp-2">{"'mobile' => 'Your Account Mobile',"}</p>
-                                        <p className="sp-2">{"'password' => 'Your Password',"}</p>
-                                        <p className="sp-2">{"'numbers' => 'Your Numbers',"}</p>
-                                        <p className="sp-2">{"'msg' => 'Your Message'"}</p>
-                                    <p className="sp-1">{");"}</p>
+                                        <p>    {"$data = array("}</p>
+                                        <p>        {"'mobile' => 'Your Account Mobile',"}</p>
+                                        <p>        {"'password' => 'Your Password',"}</p>
+                                        <p>        {"'numbers' => 'Your Numbers(Use ',' for Multiple Numbers)',"}</p>
+                                        <p>        {"'msg' => 'Your Message'"}</p>
+                                        <p>    {");"}</p>
 
-                                    <p className="sp-1">{"$options = array("}</p>
-                                        <p className="sp-2">{"'http' => array("}</p>
-                                            <p className="sp-3">{'"header"  => "Content-type: application/x-www-form-urlencoded\\r\\n",'}</p>
-                                            <p className="sp-3">{"'method'  => 'POST',"}</p>
-                                            <p className="sp-3">{"'content' => http_build_query($data)"}</p>
-                                        <p className="sp-2">{")"}</p>
-                                        <p className="sp-1">{");"}</p>
-                                    <p className="sp-1">{"$context  = stream_context_create($options);"}</p>
-                                    <p className="sp-1">{"$result = file_get_contents($url, false, $context);"}</p>
-                                    <p className="sp-1">{"if ($result === FALSE) { "}</p>
-                                    <p className="sp-2">{"/* Handle error */"}</p>
-                                    <p className="sp-1">{"}"}</p>
-                                    <p className="sp-1">{"print_r($result);"}</p>
-                                    <p>{"?>"}</p>
-                                </code>
+                                        <p>    {"$options = array("}</p>
+                                        <p>        {"'http' => array("}</p>
+                                        <p>            {'"header"  => "Content-type: application/x-www-form-urlencoded\\r\\n",'}</p>
+                                        <p>            {"'method'  => 'POST',"}</p>
+                                        <p>            {"'content' => http_build_query($data)"}</p>
+                                        <p>        {")"}</p>
+                                        <p>    {");"}</p>
+                                        <p>    {"$context  = stream_context_create($options);"}</p>
+                                        <p>    {"$result = file_get_contents($url, false, $context);"}</p>
+                                        <p>    {"if ($result === FALSE) { "}</p>
+                                        <p>        {"/* Handle error */"}</p>
+                                        <p>    {"}"}</p>
+                                        <p>    {"print_r($result);"}</p>
+                                        <p>{"?>"}</p>
+                                    </code>
+                                </pre>
+                            </div>
+                        </div>
+                        <div className="row mt-5">
+                            <div className='col-12'>
+                                <h3>Using JavaScript(Axios):</h3>
+                                <p>Add Script File With Code and Replace <b>"Mobile"</b>, <b>"Password"</b>, <b>"Numbers"</b>, <b>"msg"</b> value with your own data. </p>
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className='col-12'>
+                                <pre>
+                                    <code>
+                                        <p>{"<script src='https://unpkg.com/axios/dist/axios.min.js'></script>"}</p>
+                                        <p>{"<script type='text/javascript'>"}</p>
+                                        <p>    const data = new FormData();</p>
+                                        <p>    data.append('mobile', "Your Account Mobile");</p>
+                                        <p>    data.append('password', "Your Password");</p>
+                                        <p>    data.append('numbers', "Your Numbers(Use ',' for Multiple Numbers)");</p>
+                                        <p>    data.append('msg', "Your Message");</p>
+                                        <p>    {"axios({"}</p>
+                                        <p>        method: 'post',</p>
+                                        <p>        url: "http://sms.falgunit.com/api/sms",</p>
+                                        <p>        data: data</p>
+                                        <p>    {"}).then((res) => {"}</p>
+                                        <p>        console.log(res); //success code here</p>
+                                        <p>    {"}).catch((err)=> {"}</p>
+                                        <p>        console.log(err); //error code here</p>
+                                        <p>    {"})"}</p>
+                                        <p>{"</script>"}</p>
+                                    </code>
+                                </pre>
                             </div>
                         </div>
                     </div>
