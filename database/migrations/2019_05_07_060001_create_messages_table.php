@@ -18,7 +18,7 @@ class CreateMessagesTable extends Migration
             $table->string('users_id');
             $table->string('numbers');
             $table->string('msg');
-            $table->integer('delivered')->default(0);
+            $table->integer('deliveried')->default(0);
             $table->timestamps();
         });
     }

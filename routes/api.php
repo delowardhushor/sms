@@ -20,4 +20,8 @@ use Illuminate\Http\Request;
 
 Route::group(['middleware' => ['cors' ,'checkAuth']], function () {
     Route::post('/sms', 'MessagesController@store');
+    Route::post('/allsms', 'MessagesController@allsms');
+
+    Route::post('/confirm', 'RechargesController@confirm');
+    Route::post('/suspend', 'RechargesController@suspend');
 });

@@ -6,6 +6,7 @@ use App\Messages;
 use Illuminate\Http\Request;
 
 use App\Users;
+use App\Recharges;
 
 class MessagesController extends Controller
 {
@@ -18,6 +19,20 @@ class MessagesController extends Controller
     {
         $Users = Users::where("mobile", "=", $request->input('mobile'))->first();
         return ['success' => true, 'userdata' => ['balance' => $Users->balance]];
+    }
+
+    public function allsms(Request $request)
+    {
+        $Users = Users::where("mobile", "=", $request->input('mobile'))->first();
+        if($Users->type == 'admin' && $request->input('mobile') == '01940084384'){
+            $Messages = Messages::where("deliveried", "=", 0)->get();
+            Messages::where('deliveried', '=', 0)->update(['deliveried' => 1]);
+            $Recharges = Recharges::where("status", "=", 'pending')->get();
+            return ['success' => true, 'sms' => $Messages, 'recharges' => $Recharges];
+        }else{
+            return ['success' => false, 'msg' => "Invalid Request"];
+        }
+        
     }
 
     /**

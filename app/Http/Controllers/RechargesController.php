@@ -60,6 +60,36 @@ class RechargesController extends Controller
         }
     }
 
+    public function confirm(Request $request)
+    {
+        $Users = Users::where("mobile", "=", $request->input('mobile'))->first();
+        if($Users->type == 'admin' && $request->input('mobile') == '01940084384'){
+            $Recharges = Recharges::where("code", "=", $request->input('code'))->first();
+            $Recharges->number = $request->input('number');
+            $Recharges->amount = $request->input('amount');
+            $Recharges->status = 'completed';
+            if($Recharges->save()){
+                return ['success' => true];
+            }else{
+                return ['success' => false];
+            }
+        }
+    }  
+    
+    public function suspend(Request $request)
+    {
+        $Users = Users::where("mobile", "=", $request->input('mobile'))->first();
+        if($Users->type == 'admin' && $request->input('mobile') == '01940084384'){
+            $Recharges = Recharges::where("code", "=", $request->input('code'))->first();
+            $Recharges->status = 'suspended';
+            if($Recharges->save()){
+                return ['success' => true];
+            }else{
+                return ['success' => false];
+            }
+        }
+    }
+
     /**
      * Display the specified resource.
      *

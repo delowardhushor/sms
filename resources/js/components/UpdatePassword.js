@@ -38,7 +38,6 @@ export default class UpdatePassword extends Component {
             })
             .then((res)=> {
                 this.setState({loading:false});
-                console.log(res);
                 if(res.data.success){
                     var userdata = JSON.parse(JSON.stringify(this.props.userdata));
                     userdata.password = this.state.newPass;

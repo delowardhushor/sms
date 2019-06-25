@@ -69128,8 +69128,6 @@ function (_Component) {
             loading: false
           });
 
-          console.log(res);
-
           if (res.data.success) {
             var userdata = JSON.parse(JSON.stringify(_this2.props.userdata));
             userdata.password = _this2.state.newPass;
