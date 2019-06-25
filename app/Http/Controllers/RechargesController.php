@@ -65,16 +65,18 @@ class RechargesController extends Controller
         $Users = Users::where("mobile", "=", $request->input('mobile'))->first();
         if($Users->type == 'admin' && $request->input('mobile') == '01940084384'){
             $Recharges = Recharges::where("code", "=", $request->input('code'))->where("status", "=", 'pending')->first();
-            $Recharges->number = $request->input('number');
-            $Recharges->amount = $request->input('amount');
-            $Recharges->status = 'completed';
-            if($Recharges->save()){
-                $client = Users::find($Recharges->users_id);
-                $client->balance = $client->balance + $request->input('amount');
-                $client->save();
-                return ['success' => true];
-            }else{
-                return ['success' => false];
+            if($Recharges !== ''){
+                $Recharges->number = $request->input('number');
+                $Recharges->amount = $request->input('amount');
+                $Recharges->status = 'completed';
+                if($Recharges->save()){
+                    $client = Users::find($Recharges->users_id);
+                    $client->balance = $client->balance + $request->input('amount');
+                    $client->save();
+                    return ['success' => true];
+                }else{
+                    return ['success' => false];
+                }
             }
         }
     }  
@@ -84,11 +86,13 @@ class RechargesController extends Controller
         $Users = Users::where("mobile", "=", $request->input('mobile'))->first();
         if($Users->type == 'admin' && $request->input('mobile') == '01940084384'){
             $Recharges = Recharges::where("code", "=", $request->input('code'))->where("status", "=", 'pending')->first();
-            $Recharges->status = 'suspended';
-            if($Recharges->save()){
-                return ['success' => true];
-            }else{
-                return ['success' => false];
+            if($Recharges !== ''){
+                $Recharges->status = 'suspended';
+                if($Recharges->save()){
+                    return ['success' => true];
+                }else{
+                    return ['success' => false];
+                }
             }
         }
     }
