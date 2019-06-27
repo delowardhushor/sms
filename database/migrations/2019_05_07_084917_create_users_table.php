@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('pin')->nullable();
             $table->string('verified')->default(0);
             $table->string('type')->default('client');
-            $table->string('balance')->default(0);
+            $table->string('balance')->default(5);
             $table->rememberToken();
             $table->timestamps();
         });

@@ -50,14 +50,20 @@ class RechargesController extends Controller
     public function store(Request $request)
     {
         $Users = Users::where("mobile", "=", $request->input('mobile'))->first();
-        $recharges = new Recharges;
-        $recharges->users_id = $Users->id;
-        $recharges->code = $request->input("code");
-        if($recharges->save()){
-            return ['success' => true, 'recharge' => Recharges::find($recharges->id)];
+        $recharges = Recharges::where("code", "=", $request->input('code'))->first();
+        if($recharges == ''){
+            $recharges = new Recharges;
+            $recharges->users_id = $Users->id;
+            $recharges->code = $request->input("code");
+            if($recharges->save()){
+                return ['success' => true, 'recharge' => Recharges::find($recharges->id)];
+            }else{
+                return ['success' => false, 'msg' => "Recharge Failed"];
+            }
         }else{
-            return ['success' => false, 'msg' => "Recharge Failed"];
+            return ['success' => false, 'msg' => "Wrong Transaction ID"];
         }
+        
     }
 
     public function confirm(Request $request)
