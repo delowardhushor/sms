@@ -134,7 +134,7 @@ export default class Signin extends Component {
                             {(this.state.confirming) &&
                                 <div className="form-label-group">
                                     <input onKeyUp={(e) => {e.keyCode == 13 ? this.confirmPin() : null}} type="text" name="pin" value={this.state.pin} onChange={this.cngText.bind(this)} id="inputPin" className="form-control" placeholder="Pin" required autoFocus />
-                                    <label htmlFor="inputName">Pin</label>
+                                    <label htmlFor="inputPin">Pin</label>
                                 </div>
                             }
 
@@ -145,7 +145,7 @@ export default class Signin extends Component {
                                             <span class="sr-only">Loading...</span>
                                         </div> 
                                             : 
-                                        'Confilm Pin'
+                                        'Confirm Pin'
                                     }
                                 </button>
                             }

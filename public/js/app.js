@@ -60829,7 +60829,7 @@ if (false) {} else {
 /*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
   \***************************************************************/
-/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext, BrowserRouter, HashRouter, Link, NavLink */
+/*! exports provided: BrowserRouter, HashRouter, Link, NavLink, MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68744,7 +68744,7 @@ function (_Component) {
         required: true,
         autoFocus: true
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        htmlFor: "inputName"
+        htmlFor: "inputPin"
       }, "Pin")), this.state.confirming && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: this.confirmPin.bind(this),
         className: "btn btn-lg btn-primary btn-block text-uppercase",
@@ -68754,7 +68754,7 @@ function (_Component) {
         role: "status"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         "class": "sr-only"
-      }, "Loading...")) : 'Confilm Pin'), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", {
+      }, "Loading...")) : 'Confirm Pin'), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", {
         className: "my-4"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: function onClick() {
@@ -69492,8 +69492,8 @@ function baseUrl() {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\learn\laraval\sms\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\learn\laraval\sms\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! E:\lara\sms\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! E:\lara\sms\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
